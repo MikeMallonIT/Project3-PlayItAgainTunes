@@ -33,8 +33,9 @@ userSchema.pre('save', async function(next) {
 
     // "this" belongs to the caller object (user instance)
     if (this.isNew || this.isModified ('password')) {
-        const eletricGuitar = 5;
-        this.password = await bcrypt.hash(this.password, eletricGuitar);
+        // use saltRounds (means cost factor) to controlhow much time is needed to calculate a single hash bcrypt, salt is a random number
+        const saltRounds = 10;
+        this.password = await bcrypt.hash(this.password, saltRounds);
 
     }
     next();
@@ -46,7 +47,7 @@ userSchema.methods.isCorrectPassword = async function(password) {
     return await bcrypt.compare(password, this.password);
 
 };
-
+// call and tell mongoose that User is the new model and userSchema is its instance to use for that model
 const User = mongoose.model('User', userSchema);
 
 module.exports = User;
