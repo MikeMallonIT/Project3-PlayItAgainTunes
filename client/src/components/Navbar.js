@@ -53,22 +53,23 @@ const NAV_ITEMS = [
   },
   {
     label: "Packages",
-    children: [
-      {
-        label: "Student Package",
-        subLabel: "Find the right insturuments for the right price!",
-        href: "#",
-      },
-      {
-        label: "Instructor Package",
-        subLabel: "An exclusive package for instructors!",
-        href: "#",
-      },
-    ],
+    href: "/packages"
+    // href: '/packages',  [
+    //   {
+    //     label: "Student Package",
+    //     subLabel: "Find the right insturuments for the right price!",
+    //     href: "#",
+    //   },
+    //   {
+    //     label: "Instructor Package",
+    //     subLabel: "An exclusive package for instructors!",
+    //     href: "#",
+    //   },
+    // ],
   },
   {
-    label: "About Us",
-    href: "#",
+    label: "Home",
+    href: "/home",
   },
   {
     label: "Cart",

@@ -8,6 +8,8 @@ import './assets/scss/global.scss'
 
 import NavBar from "./components/Navbar";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
+
 
 
 //Pages
@@ -17,6 +19,9 @@ import Signup from "./pages/Signup";
 import Detail from "./pages/Detail";
 import Checkout from "./pages/Checkout";
 import Categories from "./pages/Categories";
+import About from "./pages/About";
+import Contact from "./pages/Contact";
+import Packages from "./pages/Packages";
 
 function App() {
   // =====Wrap ChakraProvider at the root of your app
@@ -29,9 +34,14 @@ function App() {
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/signup" element={<Signup />} />
           <Route exact path="/detail" element={<Detail />} />
+          <Route exact path="/packages" element={<Packages />} />
           <Route exact path="/checkout" element={<Checkout />} />
           <Route exact path="/categories" element={<Categories />} />
+          <Route exact path="/about" element={<About />} />
+          <Route exact path="/contact" element={<Contact />} />
+          <Route exact path="/home" element={<Home />} />
         </Routes>
+        <Footer/>
       </Router>
       {/* <NavBar></NavBar>
       <CategoryMenu></CategoryMenu> */}
