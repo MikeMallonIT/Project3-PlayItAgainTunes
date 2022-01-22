@@ -31,7 +31,7 @@ const productSchema = new Schema({
     }
 });
 
-// // call and tell mongoose that Product is the new model and productSchema is its instance to use for that model
+ // call and tell mongoose that Product is the new model and productSchema is its instance to use for that model
 
 const Product = mongoose.model('Product', productSchema);
 
