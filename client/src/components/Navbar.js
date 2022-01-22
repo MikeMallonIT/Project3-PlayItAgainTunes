@@ -27,28 +27,29 @@ import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 const NAV_ITEMS = [
   {
     label: "Categories",
-    children: [
-      {
-        label: "Brass Instruments",
-        subLabel: "Trumpet and Trombone",
-        href: "#",
-      },
-      {
-        label: "Woodwind Instruments",
-        subLabel: "Flute and Saxophone ",
-        href: "#",
-      },
-      {
-        label: "Guitars",
-        subLabel: "Electric and Acoustic ",
-        href: "#",
-      },
-      {
-        label: "Percussion",
-        subLabel: "Drums",
-        href: "#",
-      },
-    ],
+    href : '/categories'
+    // children: [
+    //   {
+    //     label: "Brass Instruments",
+    //     subLabel: "Trumpet and Trombone",
+    //     href: "#",
+    //   },
+    //   {
+    //     label: "Woodwind Instruments",
+    //     subLabel: "Flute and Saxophone ",
+    //     href: "#",
+    //   },
+    //   {
+    //     label: "Guitars",
+    //     subLabel: "Electric and Acoustic ",
+    //     href: "#",
+    //   },
+    //   {
+    //     label: "Percussion",
+    //     subLabel: "Drums",
+    //     href: "#",
+    //   },
+    // ],
   },
   {
     label: "Packages",

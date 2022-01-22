@@ -3,8 +3,12 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // ==== Imported Chakra
 import { ChakraProvider, useColorMode } from "@chakra-ui/react";
 import "./index.css";
+
+import './assets/scss/global.scss'
+
 import NavBar from "./components/Navbar";
 import Header from "./components/Header";
+
 
 //Pages
 import Home from "./pages/Home";
@@ -12,6 +16,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Detail from "./pages/Detail";
 import Checkout from "./pages/Checkout";
+import Categories from "./pages/Categories";
 
 function App() {
   // =====Wrap ChakraProvider at the root of your app
@@ -25,6 +30,7 @@ function App() {
           <Route exact path="/signup" element={<Signup />} />
           <Route exact path="/detail" element={<Detail />} />
           <Route exact path="/checkout" element={<Checkout />} />
+          <Route exact path="/categories" element={<Categories />} />
         </Routes>
       </Router>
       {/* <NavBar></NavBar>
