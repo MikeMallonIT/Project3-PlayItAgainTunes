@@ -14,7 +14,8 @@
     "author": "",
     "license": "ISC",
     "devDependencies": {
-        "concurrently": "^5.1.0"
+        "concurrently": "^5.1.0",
+        "mini-css-extract-plugin": "2.4.5"
     },
     "dependencies": {
         "@chakra-ui/react": "^1.7.4",
