@@ -1,0 +1,31 @@
+//ALL COMPONENT SCSS NEEDS TO BE IMPORT HERE
+@import  './categories.scss';
+
+
+//ALL PAGES CSS NEEDS TO BE IMPORT HERE
+
+
+//GLOBAL CLASSES GOES HERE
+
+.d-flex{
+    display: flex;
+}
+
+.space-between{
+    justify-content: space-between;
+}
+
+.flex-wrap{
+    flex-wrap: wrap;
+}
+
+
+//HidingScrollbar
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+::-webkit-scrollbar-thumb {
+    background: #FF0000;
+}
