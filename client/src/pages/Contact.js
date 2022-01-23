@@ -60,6 +60,8 @@ import {
           backgroundAttachment: 'fixed',
         }}
         id="contact">
+                              <form className='contact-form' onSubmit={sendEmail}>
+
         <Box
           borderRadius="lg"
           m={{ base: 5, md: 16, lg: 10 }}
@@ -132,14 +134,16 @@ import {
                   
                 </Stack>
 
-                <form onSubmit={sendEmail}>
                 <Box
                   bg={useColorModeValue('white', 'gray.700')}
                   borderRadius="lg"
                   p={8}
                   color={useColorModeValue('gray.700', 'whiteAlpha.900')}
                   shadow="base">
-                  <VStack spacing={5}>
+                  <VStack spacing={5}
+                  onSubmit={sendEmail}
+                  >
+
                     <FormControl isRequired>
                       <FormLabel>Name</FormLabel>
   
@@ -173,7 +177,7 @@ import {
                       />
                     </FormControl>
   
-                    <Button
+                    <Button type='submit' value='Send' className='submit'
                       colorScheme="blue"
                       bg="cyan.400"
                       color="white"
@@ -183,15 +187,19 @@ import {
                       isFullWidth>
                       Send Message
                     </Button>
+
+                      
+                     
                   </VStack>
                 </Box>
-                </form>
   
                 
               </Stack>
             </VStack>
           </Box>
         </Box>
+        </form>
+
       </Flex>
     );
   }
