@@ -7,7 +7,7 @@ import {
     Text,
     Link,
     Button,
-    useColorModeValue
+    useColorModeValue,IconButton
 
 } from '@chakra-ui/react';
 import { FaTwitter, FaGithub, FaInstagram } from 'react-icons/fa';
@@ -74,10 +74,17 @@ export default function LargeWithAppLinksAndSocial() {
                         <Button label={'Twitter'} href={'#'}>
                             <FaTwitter />
                         </Button>
-                        <Button label={'Github'} 
-                         href='https://github.com/MikeMallonIT/Project3-PlayItAgainTunes' target="_blank" rel="noopener noreferrer" >
-                            <FaGithub />
-                        </Button>
+                        <Link href="https://github.com/MikeMallonIT/Project3-PlayItAgainTunes" target="_blank" rel="noopener noreferrer" >
+                    <IconButton
+                     label="github"
+                      icon={<FaGithub />}
+                      _hover={{
+                        bg: 'cyan.500',
+                        color: useColorModeValue('white', 'gray.700'),
+                      }}
+                      isRound
+                    />
+                  </Link>
                         <Button label={'Instagram'} href={'#'}>
                             <FaInstagram />
                         </Button>

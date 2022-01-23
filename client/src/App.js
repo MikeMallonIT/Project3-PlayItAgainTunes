@@ -9,6 +9,12 @@ import './assets/scss/global.scss'
 import NavBar from "./components/Navbar";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Checkout from "./components/Checkout";
+import { OrderSummary } from "./components/OrderSummary";
+import { CartOrderSummary } from "./components/CartOrderSummary";
+import { PaymentInformation } from "./components/PaymentInformation";
+import { ShippingInformation } from "./components/ShippingInformation";
+import { ShippingMethod } from "./components/ShippingMethod";
 
 
 
@@ -17,11 +23,11 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Detail from "./pages/Detail";
-import Checkout from "./pages/Checkout";
 import Categories from "./pages/Categories";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Packages from "./pages/Packages";
+import Cart from "./components/Cart";
 
 function App() {
   // =====Wrap ChakraProvider at the root of your app
@@ -40,6 +46,7 @@ function App() {
           <Route exact path="/about" element={<About />} />
           <Route exact path="/contact" element={<Contact />} />
           <Route exact path="/home" element={<Home />} />
+          <Route exact path="/cart" element={<Cart />} />
         </Routes>
         <Footer/>
       </Router>
