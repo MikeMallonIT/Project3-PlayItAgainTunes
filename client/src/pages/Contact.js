@@ -20,6 +20,7 @@ import {
   import React from 'react';
   import { BsGithub, BsPerson, BsTwitter } from 'react-icons/bs';
   import { MdEmail, MdOutlineEmail } from 'react-icons/md';
+  import emailjs from 'emailjs-com';
   
   const confetti = {
     light: {
@@ -39,6 +40,15 @@ import {
   
   export default function ContactFormWithSocialButtons() {
     const { hasCopied, onCopy } = useClipboard('example@example.com');
+    const sendEmail = (e) => {
+      // preventing the default behavior of the form submit (which is to refresh the page)
+      e.preventDefault();
+      emailjs.sendForm('service_jamlfxa', 'template_375el6l', e.target, 'user_t79LJx3aRhia7Q4R7pupG') 
+      .then(res =>{
+          console.log(res)
+      }).catch(err => console.log(err));
+      e.target.reset();
+  }
   
     return (
       <Flex
@@ -121,7 +131,8 @@ import {
   
                   
                 </Stack>
-  
+
+                <form onSubmit={sendEmail}>
                 <Box
                   bg={useColorModeValue('white', 'gray.700')}
                   borderRadius="lg"
@@ -174,6 +185,9 @@ import {
                     </Button>
                   </VStack>
                 </Box>
+                </form>
+  
+                
               </Stack>
             </VStack>
           </Box>
