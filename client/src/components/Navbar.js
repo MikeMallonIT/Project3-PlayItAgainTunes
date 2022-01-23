@@ -24,56 +24,24 @@ import {
 } from "@chakra-ui/icons";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 
+
 const NAV_ITEMS = [
-  {
-    label: "Categories",
-    href : '/categories'
-    // children: [
-    //   {
-    //     label: "Brass Instruments",
-    //     subLabel: "Trumpet and Trombone",
-    //     href: "#",
-    //   },
-    //   {
-    //     label: "Woodwind Instruments",
-    //     subLabel: "Flute and Saxophone ",
-    //     href: "#",
-    //   },
-    //   {
-    //     label: "Guitars",
-    //     subLabel: "Electric and Acoustic ",
-    //     href: "#",
-    //   },
-    //   {
-    //     label: "Percussion",
-    //     subLabel: "Drums",
-    //     href: "#",
-    //   },
-    // ],
-  },
-  {
-    label: "Packages",
-    href: "/packages"
-    // href: '/packages',  [
-    //   {
-    //     label: "Student Package",
-    //     subLabel: "Find the right insturuments for the right price!",
-    //     href: "#",
-    //   },
-    //   {
-    //     label: "Instructor Package",
-    //     subLabel: "An exclusive package for instructors!",
-    //     href: "#",
-    //   },
-    // ],
-  },
   {
     label: "Home",
     href: "/home",
   },
   {
+    label: "Categories",
+    href: '/categories' 
+  },
+  {
+    label: "Packages",
+    href: "/packages"
+    
+  },
+  {
     label: "Cart",
-    href: "#",
+    href: "/cart",
   },
 ];
 export default function WithSubnavigation() {
@@ -108,13 +76,13 @@ export default function WithSubnavigation() {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
-          <Text
+          {/* <Text
             textAlign={useBreakpointValue({ base: "center", md: "left" })}
             fontFamily={"heading"}
             color={useColorModeValue("gray.800", "white")}
           >
             Logo
-          </Text>
+          </Text> */}
 
           <Flex display={{ base: "none", md: "flex" }} ml={10}>
             <DesktopNav />
