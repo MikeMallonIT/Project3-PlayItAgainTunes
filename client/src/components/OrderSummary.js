@@ -6,6 +6,7 @@ import {
     Icon,
     Input,
     Stack,
+    Link,
     Text,
     useColorModeValue,
   } from '@chakra-ui/react'
@@ -65,10 +66,10 @@ import {
               <Text color={useColorModeValue('gray.600', 'gray.300')}>Shipping cost</Text>
               <Text color={useColorModeValue('black', 'white')}>+$24.99</Text>
             </Stack>
-            <Stack direction="row" justify="space-between">
+            {/* <Stack direction="row" justify="space-between">
               <Text color={useColorModeValue('gray.600', 'gray.300')}>Discount (20%)</Text>
               <Text color={useColorModeValue('cyan.500', 'cyan.200')}>-$20.00</Text>
-            </Stack>
+            </Stack> */}
           </Stack>
           <Divider />
           <Stack direction="row" justify="space-between">
@@ -100,7 +101,9 @@ import {
           >
             <HStack>
               <Icon as={HiOutlineMail} boxSize="5" />
-              <Text>Contact Us</Text>
+              <Text align={"center"}>
+                  Already a user? <Link color={"blue.400"} href={"./login"}>Login</Link>
+                </Text>
             </HStack>
           </HStack>
         </Stack>
