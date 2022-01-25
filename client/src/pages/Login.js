@@ -94,6 +94,7 @@ export default function SimpleCard() {
                 <Button
                   bg={"blue.400"}
                   color={"white"}
+                  type="submit"
                   _hover={{
                     bg: "blue.500",
                   }}

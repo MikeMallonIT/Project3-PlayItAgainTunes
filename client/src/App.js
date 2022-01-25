@@ -1,6 +1,13 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // ==== Imported Chakra
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  createHttpLink,
+} from '@apollo/client';
+import { setContext } from '@apollo/client/link/context';
 import { ChakraProvider, useColorMode } from "@chakra-ui/react";
 import "./index.css";
 
@@ -29,10 +36,33 @@ import Contact from "./pages/Contact";
 import Packages from "./pages/Packages";
 import Cart from "./components/Cart";
 
+
+const httpLink = createHttpLink({
+  uri: '/graphql',
+});
+
+const authLink = setContext((_, { headers }) => {
+  const token = localStorage.getItem('id_token');
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : '',
+    },
+  };
+});
+
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+});
+
+
 function App() {
   // =====Wrap ChakraProvider at the root of your app
   return (
     <>
+    <ApolloProvider client={client}>
+
       <Router>
         <NavBar></NavBar>
         <Routes>
@@ -56,6 +86,8 @@ function App() {
       <ProductList></ProductList>
       <CartItem></CartItem>
       <Cart></Cart> */}
+    </ApolloProvider>
+
     </>
   );
 }

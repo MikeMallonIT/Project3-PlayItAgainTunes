@@ -16,7 +16,9 @@ import {
   Link,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
+
 import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
+// import { Link } from 'react-router-dom';
 import { useMutation } from "@apollo/client";
 import Auth from "../utils/auth";
 import { ADD_USER } from "../utils/mutations";
@@ -43,21 +45,18 @@ export default function SignupCard() {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log("form state", formState);
-    try {
-      const { data } = await addUser({
-        variables: {
-          ...formState,
-        },
-      });
-
-      const token = data.addUser.token;
-      Auth.login(token);
-    } catch (error) {
-      console.error(error);
-      setFormState({ email: "", password: "", firstName: "", lastName: "" });
-    }
+    const mutationResponse = await addUser({
+      variables: {
+        email: formState.email,
+        password: formState.password,
+        firstName: formState.firstName,
+        lastName: formState.lastName,
+      },
+    });
+    const token = mutationResponse.data.addUser.token;
+    Auth.login(token);
   };
+  
 
   return (
     <Flex
