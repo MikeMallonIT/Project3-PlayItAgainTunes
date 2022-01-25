@@ -19,7 +19,7 @@ db.once("open", async () => {
       brand: "Yamaha",
       description:
         "Includes a laminate spruce top, rosewood fingerboard and bridge, and meranti back and sides. Gold die-cast tuners provide smooth and accurate tuning while a tortoise-pattern pickguard gives a bit more style.",
-      price: 15.0,
+      price: 15.00,
       quantity: 5,
       category: categories[0]._id,
     },
@@ -28,7 +28,7 @@ db.once("open", async () => {
       brand: "Squire Stratocaster",
       description:
         "It includes a lightweight body, a vintage-style tremolo bridge for classic pitch effects and three single-coil pickups for classic Strat tone. Amp included.",
-      price: 25.0,
+      price: 25.00,
       quantity: 5,
       category: categories[0]._id,
     },
@@ -37,7 +37,7 @@ db.once("open", async () => {
       brand: "Bach TR300H2",
       description:
         "Features a red brass leadpipe seamlessly ending with a yellow brass bell. A clear laquer finish keeps resonance at an all time high for this beginner level instrument. Mouthpiece included.",
-      price: 25.0,
+      price: 25.00,
       quantity: 5,
       category: categories[1]._id,
     },
@@ -46,7 +46,7 @@ db.once("open", async () => {
       brand: "Conn-Selmer TB711",
       description:
         "Yellow brass all around for the best projection and a nickel silver handslide for smooth motion. Mouthpiece included.",
-      price: 25.0,
+      price: 25.00,
       quantity: 5,
       category: categories[1]._id,
     },
@@ -55,7 +55,7 @@ db.once("open", async () => {
       brand: "Gemeinhardt 2SP",
       description:
         "Sterling silver plated for best resonance and offset G key which is perfect for smaller hands.",
-      price: 30.0,
+      price: 30.00,
       quantity: 5,
       category: categories[2]._id,
     },
@@ -64,7 +64,7 @@ db.once("open", async () => {
       brand: "Yamaha YAS-280",
       description:
         "Gold lacquer for bright sound and great intonation are expected from this instrument. Also features an adjustable thumb rest to customize for each player. Mouthpiece, ligature, and strap included.",
-      price: 30.0,
+      price: 30.00,
       quantity: 5,
       category: categories[2]._id,
     },
@@ -73,7 +73,7 @@ db.once("open", async () => {
       brand: "Vic Firth Snare Kit",
       description:
         "14-inch chrome plated snare drum with an 8-inch practice pad included. Also has a drum stand and travel case.",
-      price: 20.0,
+      price: 20.00,
       quantity: 3,
       category: categories[3]._id,
     },
@@ -82,7 +82,7 @@ db.once("open", async () => {
       brand: "Ludwig Xylophone Kit",
       description:
         "Durable Paduk bars on this 2.5 octave xylophone. Includes a stand and travel case.",
-      price: 40.0,
+      price: 40.00,
       quantity: 4,
       category: categories[3]._id,
     },
