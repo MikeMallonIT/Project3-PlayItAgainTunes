@@ -89,7 +89,7 @@ export default function SimpleCard() {
                   justify={"space-between"}
                 >
                   <Checkbox>Remember me</Checkbox>
-                  <Link color={"blue.400"}>Forgot password?</Link>
+                  {/* <Link color={"blue.400"}>Forgot password?</Link> */}
                 </Stack>
                 <Button
                   bg={"blue.400"}
