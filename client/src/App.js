@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // ==== Imported Chakra
 import {
@@ -26,16 +26,19 @@ import { ShippingMethod } from "./components/ShippingMethod";
 
 
 //Pages
-import Home from "./pages/Home";
+//import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Detail from "./pages/Detail";
 import Categories from "./pages/Categories";
-import About from "./pages/About";
+//import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Packages from "./pages/Packages";
 import Cart from "./components/Cart";
+import { Suspense } from "react";
 
+const  About = lazy(() => import('./pages/About'));
+const Home = lazy(() => import('./pages/Home'))
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -64,21 +67,24 @@ function App() {
     <ApolloProvider client={client}>
 
       <Router>
-        <NavBar></NavBar>
-        <Routes>
-          <Route exact path="/" element={<Header />} />
-          <Route exact path="/login" element={<Login />} />
-          <Route exact path="/signup" element={<Signup />} />
+        <Suspense>
+          <NavBar></NavBar>
+          <Routes>
+            <Route exact path="/" element={<Header />} />
+            <Route exact path="/login" element={<Login />} />
+            <Route exact path="/signup" element={<Signup />} />
           {/*<Route exact path="/detail" element={<Detail />} /> */}
-          <Route exact path="/packages" element={<Packages />} />
-          <Route exact path="/checkout" element={<Checkout />} />
-          <Route exact path="/categories" element={<Categories />} />
-          <Route exact path="/about" element={<About />} />
-          <Route exact path="/contact" element={<Contact />} />
-          <Route exact path="/home" element={<Home />} />
-          <Route exact path="/cart" element={<Cart />} />
-        </Routes>
-        <Footer/>
+            <Route exact path="/packages" element={<Packages />} />
+            <Route exact path="/checkout" element={<Checkout />} />
+            <Route exact path="/categories" element={<Categories />} />
+            <Route exact path="/about" element={<About />} />
+            <Route exact path="/contact" element={<Contact />} />
+            <Route exact path="/home" element={<Home />} />
+            <Route exact path="/cart" element={<Cart />} />
+          </Routes>
+          <Footer/>
+        </Suspense>
+        
       </Router>
       {/* <NavBar></NavBar>
       <CategoryMenu></CategoryMenu> */}
