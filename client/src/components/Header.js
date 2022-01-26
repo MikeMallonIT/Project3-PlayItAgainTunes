@@ -103,7 +103,7 @@ export default function CallToActionWithVideo() {
               w={'100%'}
               h={'100%'}
               src={
-                'https://i.pinimg.com/originals/4e/c4/e0/4ec4e04451024d26ce817b0f73d82866.jpg'
+                '/guitarguy.png'
               }
             />
           </Box>
