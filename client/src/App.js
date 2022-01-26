@@ -1,4 +1,4 @@
-import React, { lazy } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // ==== Imported Chakra
 import {
@@ -26,19 +26,16 @@ import { ShippingMethod } from "./components/ShippingMethod";
 
 
 //Pages
-//import Home from "./pages/Home";
+import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Detail from "./pages/Detail";
 import Categories from "./pages/Categories";
-//import About from "./pages/About";
+import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Packages from "./pages/Packages";
 import Cart from "./components/Cart";
 import { Suspense } from "react";
-
-const  About = lazy(() => import('./pages/About'));
-const Home = lazy(() => import('./pages/Home'))
 
 const httpLink = createHttpLink({
   uri: '/graphql',

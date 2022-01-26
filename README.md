@@ -31,4 +31,4 @@ Download all associated files in this repository. Install mongo DB then Open you
 - [Stack Overflow](https://stackoverflow.com/questions/46693430/what-are-salt-rounds-and-how-are-salts-stored-in-bcrypt)
 - [Tabnine](https://www.tabnine.com/code/javascript/functions/bcrypt/compare)
 - [mongoosejs](https://mongoosejs.com/docs/schematypes.html)
-https://reactjs.org/docs/code-splitting.html  (import React.lazy function to render a dynamic import to reduce bytes consumed)
+- https://reactjs.org/docs/code-splitting.html  (import React.lazy function to render a dynamic import to reduce bytes consumed)
