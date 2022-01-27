@@ -9,7 +9,8 @@ const FILES_TO_CACHE = [
   "/logo512.png",
   "/robots.txt",
   "/guitarguy.png",
-  "/js/loadImages.js"
+  
+  
 
 ];
 
@@ -72,11 +73,18 @@ self.addEventListener("fetch", function(evt) {
     return;
   }
 
+  // evt.respondWith(
+  //   caches.open(CACHE_NAME).then(cache => {
+  //     return cache.match(evt.request).then(response => {
+  //       return response || fetch(evt.request);
+  //     });
+  //   })
+  // );
+
   evt.respondWith(
-    caches.open(CACHE_NAME).then(cache => {
-      return cache.match(evt.request).then(response => {
-        return response || fetch(evt.request);
-      });
+    caches.match(evt.request).then(function(response) {
+      return response || fetch(evt.request);
     })
   );
+
 });

@@ -1,7 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(
-  process.env.MONGODB_URI || 'mongodb://localhost/play-it-again-tunes',
+mongoose.connect('mongodb+srv://project3-admin:wholesome4@cluster0.gb3jw.mongodb.net/myFirstDatabase?retryWrites=true&w=majority' || 'mongodb://localhost/play-it-again-tunes',
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -11,3 +10,5 @@ mongoose.connect(
 );
 
 module.exports = mongoose.connection;
+
+
