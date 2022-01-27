@@ -1,13 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 // ==== Imported Chakra
-import {
-  ApolloClient,
-  InMemoryCache,
-  ApolloProvider,
-  createHttpLink,
-} from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
 import { ChakraProvider, useColorMode } from "@chakra-ui/react";
 import "./index.css";
 
@@ -36,40 +29,18 @@ import Contact from "./pages/Contact";
 import Packages from "./pages/Packages";
 import Cart from "./components/Cart";
 
-
-const httpLink = createHttpLink({
-  uri: '/graphql',
-});
-
-const authLink = setContext((_, { headers }) => {
-  const token = localStorage.getItem('id_token');
-  return {
-    headers: {
-      ...headers,
-      authorization: token ? `Bearer ${token}` : '',
-    },
-  };
-});
-
-const client = new ApolloClient({
-  link: authLink.concat(httpLink),
-  cache: new InMemoryCache(),
-});
-
-
 function App() {
   // =====Wrap ChakraProvider at the root of your app
   return (
     <>
-    <ApolloProvider client={client}>
-
       <Router>
         <NavBar></NavBar>
         <Routes>
-          <Route exact path="/" element={<Header />} />
+          {/* <Route exact path="/" element={<Header />} /> */}
+          <Route exact path="/" element={<Home />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/signup" element={<Signup />} />
-          {/*<Route exact path="/detail" element={<Detail />} /> */}
+          <Route exact path="/detail" element={<Detail />} />
           <Route exact path="/packages" element={<Packages />} />
           <Route exact path="/checkout" element={<Checkout />} />
           <Route exact path="/categories" element={<Categories />} />
@@ -78,7 +49,7 @@ function App() {
           <Route exact path="/home" element={<Home />} />
           <Route exact path="/cart" element={<Cart />} />
         </Routes>
-        <Footer/>
+        <Footer />
       </Router>
       {/* <NavBar></NavBar>
       <CategoryMenu></CategoryMenu> */}
@@ -86,8 +57,6 @@ function App() {
       <ProductList></ProductList>
       <CartItem></CartItem>
       <Cart></Cart> */}
-    </ApolloProvider>
-
     </>
   );
 }
