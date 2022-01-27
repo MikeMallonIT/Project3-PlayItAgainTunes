@@ -9,7 +9,7 @@ const FILES_TO_CACHE = [
   "/logo512.png",
   "/robots.txt",
   "/guitarguy.png",
-  "/js/loadImages.js",
+  
   
 
 ];
