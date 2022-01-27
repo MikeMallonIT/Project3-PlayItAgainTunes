@@ -24,7 +24,6 @@ import {
 } from "@chakra-ui/icons";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 
-
 const NAV_ITEMS = [
   {
     label: "Home",
@@ -32,12 +31,11 @@ const NAV_ITEMS = [
   },
   {
     label: "Categories",
-    href: '/categories' 
+    href: "/categories",
   },
   {
-    label: "Packages",
-    href: "/packages"
-    
+    label: "Services",
+    href: "/services",
   },
   {
     label: "Cart",
