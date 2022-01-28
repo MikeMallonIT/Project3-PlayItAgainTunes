@@ -16,6 +16,7 @@ import {
 import logo from "../assets/images/logo.png";
 import TypeWritter from "typewriter-effect";
 import { motion } from "framer-motion";
+import {FaArrowRight} from "react-icons/fa"
 export default function Home() {
   return (
     <Container maxW={"7xl"}>
@@ -52,7 +53,7 @@ export default function Home() {
                 zIndex: -1,
               }}
             >
-              Hey you
+              Hey you,
             </Text>
             <br />
             <TypeWritter
@@ -72,7 +73,7 @@ export default function Home() {
             }}
           > */}
           <Text color={"gray.500"}>
-            You're go to place to rent musical instruments!
+            Your go to place to rent musical instruments!
           </Text>
           {/* </motion.div> */}
           <Stack
@@ -84,11 +85,14 @@ export default function Home() {
               size={"lg"}
               fontWeight={"normal"}
               px={6}
+              as="a"
+              href={'./categories'}
+              rightIcon={<FaArrowRight/>}
               colorScheme={"cyan"}
               bg={"cyan.400"}
               _hover={{ bg: "cyan.500" }}
             >
-              Get started
+              Browse
             </Button>
           </Stack>
         </Stack>

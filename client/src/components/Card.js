@@ -8,33 +8,32 @@ import {
     Icon,
     chakra,
     Tooltip,
+    Modal,
+   ModalOverlay,
+   ModalContent,
+   ModalHeader,
+   ModalFooter,
+   ModalBody,
+   ModalCloseButton,
    Button,
-   Modal,
-  ModalOverlay,
-  ModalContent,
-  ModalHeader,
-  ModalFooter,
-  ModalBody,
-  ModalCloseButton,
-  Text,
-  useDisclosure
+   Text,
+   useDisclosure
   } from '@chakra-ui/react';
-  // import { BsStar, BsStarFill, BsStarHalf } from 'react-icons/bs';
-  import { FiShoppingCart ,FiTool} from 'react-icons/fi';
+  import { BsTools } from 'react-icons/bs';
+  import { FiShoppingCart } from 'react-icons/fi';
   
   const data = {
-    // isNew: true,
     imageURL:
       'https://images.unsplash.com/photo-1572635196237-14b3f281503f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=4600&q=80',
     name: 'Wayfarer Classic',
-    price: 4.5,
-    // rating: 4.2,
-    // numReviews: 34,
+    price: 4.5
   };
   
-  function Card({name, price, image,description}) {
-      console.log('name ', name , price , image,description)
-      const { isOpen, onOpen, onClose } = useDisclosure()
+  
+  
+  function Card({name, price, image}) {
+      console.log('name ', name , price , image)
+      const { isOpen, onOpen, onClose } = useDisclosure();
     return (
       <Flex alignItems="center" justifyContent="center">
         <Box
@@ -44,15 +43,7 @@ import {
           rounded="lg"
           shadow="lg"
           position="relative">
-          {data.isNew && (
-            <Circle
-              size="10px"
-              position="absolute"
-              top={2}
-              right={2}
-              bg="red.200"
-            />
-          )}
+          
   
           <Image
             src={image}
@@ -94,7 +85,7 @@ import {
             </Flex>
   
             <Flex justifyContent="space-between" alignContent="center">
-              {/* <Rating rating={data.rating} numReviews={data.numReviews} /> */}
+             
               <Box fontSize="2xl" color={useColorModeValue('gray.800', 'white')}>
                 <Box as="span" color={'gray.600'} fontSize="lg">
                   $
@@ -102,8 +93,6 @@ import {
                 {price}
               </Box>
             </Flex>
-
-            <Flex justifyContent="space-between" alignContent="center">
             <Button onClick={onOpen}>Description</Button>
 
       <Modal isOpen={isOpen} onClose={onClose}>
@@ -112,18 +101,17 @@ import {
           <ModalHeader>Item</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
-            <Text count={2}>Enter Description here</Text>
+            <Text count={2} >Enter Text Here </Text>
           </ModalBody>
 
           <ModalFooter>
-            <Button colorScheme='blue' mr={3} onClick={onClose}>
+            <Button variantColor="blue" mr={3} onClick={onClose}>
               Close
             </Button>
-            <Button as= "a" href='./packages' variant='ghost' leftIcon={<FiTool/>} >Add-on Services</Button>
+            <Button as="a" href={'../packages'}  leftIcon={<BsTools/>}variant="ghost">Add-on Services</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
-            </Flex>
           </Box>
         </Box>
       </Flex>

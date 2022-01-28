@@ -36,11 +36,11 @@ import {
               Calculate shipping
             </Link>
           </OrderSummaryItem>
-          {/* <OrderSummaryItem label="Coupon Code">
+          <OrderSummaryItem label="Coupon Code">
             <Link href="#" textDecor="underline">
               Add coupon code
             </Link>
-          </OrderSummaryItem> */}
+          </OrderSummaryItem>
           <Flex justify="space-between">
             <Text fontSize="lg" fontWeight="semibold">
               Total

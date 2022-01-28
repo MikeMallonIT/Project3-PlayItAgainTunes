@@ -20,7 +20,6 @@ import {
   import React from 'react';
   import { BsGithub, BsPerson, BsTwitter } from 'react-icons/bs';
   import { MdEmail, MdOutlineEmail } from 'react-icons/md';
-  import emailjs from 'emailjs-com';
   
   const confetti = {
     light: {
@@ -40,15 +39,6 @@ import {
   
   export default function ContactFormWithSocialButtons() {
     const { hasCopied, onCopy } = useClipboard('example@example.com');
-    const sendEmail = (e) => {
-      // preventing the default behavior of the form submit (which is to refresh the page)
-      e.preventDefault();
-      emailjs.sendForm('service_jamlfxa', 'template_375el6l', e.target, 'user_t79LJx3aRhia7Q4R7pupG') 
-      .then(res =>{
-          console.log(res)
-      }).catch(err => console.log(err));
-      e.target.reset();
-  }
   
     return (
       <Flex
@@ -60,8 +50,6 @@ import {
           backgroundAttachment: 'fixed',
         }}
         id="contact">
-                              <form className='contact-form' onSubmit={sendEmail}>
-
         <Box
           borderRadius="lg"
           m={{ base: 5, md: 16, lg: 10 }}
@@ -133,17 +121,14 @@ import {
   
                   
                 </Stack>
-
+  
                 <Box
                   bg={useColorModeValue('white', 'gray.700')}
                   borderRadius="lg"
                   p={8}
                   color={useColorModeValue('gray.700', 'whiteAlpha.900')}
                   shadow="base">
-                  <VStack spacing={5}
-                  onSubmit={sendEmail}
-                  >
-
+                  <VStack spacing={5}>
                     <FormControl isRequired>
                       <FormLabel>Name</FormLabel>
   
@@ -177,7 +162,7 @@ import {
                       />
                     </FormControl>
   
-                    <Button type='submit' value='Send' className='submit'
+                    <Button
                       colorScheme="blue"
                       bg="cyan.400"
                       color="white"
@@ -187,19 +172,12 @@ import {
                       isFullWidth>
                       Send Message
                     </Button>
-
-                      
-                     
                   </VStack>
                 </Box>
-  
-                
               </Stack>
             </VStack>
           </Box>
         </Box>
-        </form>
-
       </Flex>
     );
   }
