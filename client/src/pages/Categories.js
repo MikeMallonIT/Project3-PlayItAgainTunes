@@ -12,6 +12,68 @@ export default function Categories() {
     const [searchResults, setSearchResults] = useState();
 
     const Categories = [
+        {
+            label: "All  Instruments",
+            value: 'all',
+            items: [
+                {
+                    name : 'Item 1',
+                    price: 500,
+                    image: 'https://images.unsplash.com/photo-1541689592655-f5f52825a3b8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Z3VpdGFyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
+                },
+                {
+                    name : 'Item 2',
+                    price: 600,
+                    image: 'https://images.unsplash.com/photo-1550291652-6ea9114a47b1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Z3VpdGFyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
+                },
+                {
+                    name : 'Item 3',
+                    price: 700,
+                    image: 'https://media.istockphoto.com/photos/close-up-on-classic-guitar-bridge-focus-on-foreground-picture-id1300197680?b=1&k=20&m=1300197680&s=170667a&w=0&h=wiQZS6TE80V1_Ew6XIarhDsIe2JAoiTv0Hq9slLPVwk=',
+                },{
+                    name : 'Item 4',
+                    price: 700,
+                    image: 'https://media.istockphoto.com/photos/close-up-on-classic-guitar-bridge-focus-on-foreground-picture-id1300197680?b=1&k=20&m=1300197680&s=170667a&w=0&h=wiQZS6TE80V1_Ew6XIarhDsIe2JAoiTv0Hq9slLPVwk=',
+                },{
+                    name : 'Item 5',
+                    price: 700,
+                    image: 'https://media.istockphoto.com/photos/close-up-on-classic-guitar-bridge-focus-on-foreground-picture-id1300197680?b=1&k=20&m=1300197680&s=170667a&w=0&h=wiQZS6TE80V1_Ew6XIarhDsIe2JAoiTv0Hq9slLPVwk=',
+                },{
+                    name : 'Item 6',
+                    price: 700,
+                    image: 'https://media.istockphoto.com/photos/close-up-on-classic-guitar-bridge-focus-on-foreground-picture-id1300197680?b=1&k=20&m=1300197680&s=170667a&w=0&h=wiQZS6TE80V1_Ew6XIarhDsIe2JAoiTv0Hq9slLPVwk=',
+                },{
+                    name : 'Item 7',
+                    price: 700,
+                    image: 'https://media.istockphoto.com/photos/close-up-on-classic-guitar-bridge-focus-on-foreground-picture-id1300197680?b=1&k=20&m=1300197680&s=170667a&w=0&h=wiQZS6TE80V1_Ew6XIarhDsIe2JAoiTv0Hq9slLPVwk=',
+                },
+                {
+                    name : 'Item 8',
+                    price: 700,
+                    image: 'https://media.istockphoto.com/photos/close-up-on-classic-guitar-bridge-focus-on-foreground-picture-id1300197680?b=1&k=20&m=1300197680&s=170667a&w=0&h=wiQZS6TE80V1_Ew6XIarhDsIe2JAoiTv0Hq9slLPVwk=',
+                },
+                {
+                    name : 'Item 9',
+                    price: 700,
+                    image: 'https://media.istockphoto.com/photos/close-up-on-classic-guitar-bridge-focus-on-foreground-picture-id1300197680?b=1&k=20&m=1300197680&s=170667a&w=0&h=wiQZS6TE80V1_Ew6XIarhDsIe2JAoiTv0Hq9slLPVwk=',
+                },
+                {
+                    name : 'Item 10',
+                    price: 700,
+                    image: 'https://media.istockphoto.com/photos/close-up-on-classic-guitar-bridge-focus-on-foreground-picture-id1300197680?b=1&k=20&m=1300197680&s=170667a&w=0&h=wiQZS6TE80V1_Ew6XIarhDsIe2JAoiTv0Hq9slLPVwk=',
+                },
+                {
+                    name : 'Item 11',
+                    price: 700,
+                    image: 'https://media.istockphoto.com/photos/close-up-on-classic-guitar-bridge-focus-on-foreground-picture-id1300197680?b=1&k=20&m=1300197680&s=170667a&w=0&h=wiQZS6TE80V1_Ew6XIarhDsIe2JAoiTv0Hq9slLPVwk=',
+                },
+                {
+                    name : 'Item 12',
+                    price: 700,
+                    image: 'https://media.istockphoto.com/photos/close-up-on-classic-guitar-bridge-focus-on-foreground-picture-id1300197680?b=1&k=20&m=1300197680&s=170667a&w=0&h=wiQZS6TE80V1_Ew6XIarhDsIe2JAoiTv0Hq9slLPVwk=',
+                }
+            ]
+          },
           {
             label: "Brass Instruments",
             value: 'brass',
@@ -152,3 +214,4 @@ export default function Categories() {
     </div>
     )
 }
+

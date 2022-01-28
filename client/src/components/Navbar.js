@@ -12,9 +12,9 @@ import {
   PopoverTrigger,
   PopoverContent,
   useColorModeValue,
-  useBreakpointValue,
   useDisclosure,
   useColorMode,
+  Image
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
@@ -22,6 +22,8 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from "@chakra-ui/icons";
+import logo from '../assets/images/logo.png'
+import logoWhite from '../assets/images/logo 04 white.png'
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 
 
@@ -32,12 +34,12 @@ const NAV_ITEMS = [
   },
   {
     label: "Categories",
-    href: '/categories' 
+    href: '/categories'
   },
   {
     label: "Packages",
     href: "/packages"
-    
+
   },
   {
     label: "Cart",
@@ -47,6 +49,7 @@ const NAV_ITEMS = [
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
+  console.log("🚀 ~ file: Navbar.js ~ line 51 ~ WithSubnavigation ~ colorMode", colorMode)
 
   return (
     <Box>
@@ -140,7 +143,13 @@ const DesktopNav = () => {
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
 
   return (
-    <Stack direction={"row"} spacing={4}>
+    <Stack alignItems={'center'} direction={"row"} spacing={4}>
+      {
+        popoverContentBgColor === 'white' ?
+          <Image h={'16'} src={logo} />
+          :
+          <Image h={'16'} src={logoWhite} />
+      }
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label}>
           <Popover trigger={"hover"} placement={"bottom-start"}>
