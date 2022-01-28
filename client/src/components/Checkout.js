@@ -77,3 +77,6 @@ export const Checkout = () => (
 )
 
 export default Checkout;
+
+//Font End
+// This is component is for the checkout page layout. Users are redirected to this page by clicking Cart>click 'Checkout'

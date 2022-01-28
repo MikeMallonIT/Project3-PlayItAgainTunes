@@ -119,3 +119,7 @@ function Card({ name, price, image }) {
 }
 
 export default Card;
+
+// Front-End
+// Card is dedicated to the products that are showing in the categories. 
+// This is the card layout  and modal 

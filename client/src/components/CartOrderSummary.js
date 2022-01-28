@@ -72,3 +72,6 @@ export const CartOrderSummary = () => {
     </Stack>
   );
 };
+
+//Front-End
+// Cart Order Summary is associated to Cart page, specific to  "Order Summary" and checkout button

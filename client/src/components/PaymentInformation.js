@@ -165,3 +165,6 @@ export const PaymentInformation = () => (
     </Stack>
   </Stack>
 );
+
+//Front-End
+//May need to be removed once Stripe is implemented to application 

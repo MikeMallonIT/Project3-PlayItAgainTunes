@@ -51,3 +51,7 @@ const Price = (props) => {
 const SalePrice = (props) => (
   <Text as="span" fontWeight="semibold" color={mode('gray.800', 'gray.100')} {...props} />
 )
+
+//Front-End
+//May need to be removed since we're pull the pricing from schema 
+// but essentially this PriceTag allows us  control to display pricing via UI/Design. 

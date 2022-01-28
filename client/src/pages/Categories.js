@@ -81,7 +81,7 @@ export default function Categories() {
                 {
                     name : 'Item 1',
                     price: 500,
-                    image: 'https://images.unsplash.com/photo-1541689592655-f5f52825a3b8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Z3VpdGFyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
+                    image: '../public/images/acousticGuitar_512x512.jpg',
                 },
                 {
                     name : 'Item 2',

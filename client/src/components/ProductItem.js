@@ -31,3 +31,6 @@ export const ProductItem = (props) => {
     </Flex>
   )
 }
+
+//Front-End
+// This page is associated to Checkout.js > spectifically to the product images, quantities and price  that you see display in the Checkout Order Summary 
