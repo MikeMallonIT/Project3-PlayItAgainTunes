@@ -68,7 +68,7 @@ function App() {
         <Suspense>
           <NavBar></NavBar>
           <Routes>
-            <Route exact path="/" element={<Header />} />
+            <Route exact path="/" element={<Home />} />
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/signup" element={<Signup />} />
           {/*<Route exact path="/detail" element={<Detail />} /> */}
