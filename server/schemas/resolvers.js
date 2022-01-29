@@ -42,9 +42,9 @@ const resolvers = {
             return await Product.findById(_id);
         },
 
-        //  products: async() => {
-        //   return await Product.find().populate('category');
-        //  },
+         products: async() => {
+          return await Product.find().populate('products');
+         },
 
         product: async (parent, { _id }) => {
             return await Product.findById(_id).populate('category');
