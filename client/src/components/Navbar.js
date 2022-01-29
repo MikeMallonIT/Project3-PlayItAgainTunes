@@ -14,7 +14,7 @@ import {
   useColorModeValue,
   useDisclosure,
   useColorMode,
-  Image
+  Image,
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
@@ -22,10 +22,10 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from "@chakra-ui/icons";
-import logo from '../assets/images/logo.png'
-import logoWhite from '../assets/images/logo 04 white.png'
+import Auth from "../utils/auth";
+import logo from "../assets/images/logo.png";
+import logoWhite from "../assets/images/logo 04 white.png";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
-
 
 const NAV_ITEMS = [
   {
@@ -34,12 +34,11 @@ const NAV_ITEMS = [
   },
   {
     label: "Categories",
-    href: '/categories'
+    href: "/categories",
   },
   {
-    label: "Packages",
-    href: "/packages"
-
+    label: "Services",
+    href: "/services",
   },
   {
     label: "Cart",
@@ -49,7 +48,10 @@ const NAV_ITEMS = [
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
-  console.log("🚀 ~ file: Navbar.js ~ line 51 ~ WithSubnavigation ~ colorMode", colorMode)
+  console.log(
+    "🚀 ~ file: Navbar.js ~ line 51 ~ WithSubnavigation ~ colorMode",
+    colorMode
+  );
 
   return (
     <Box>
@@ -104,15 +106,20 @@ export default function WithSubnavigation() {
           direction={"row"}
           spacing={6}
         >
-          <Button
-            as={"a"}
-            fontSize={"sm"}
-            fontWeight={400}
-            variant={"link"}
-            href={"/login"}
-          >
-            Login
-          </Button>
+          {Auth.loggedIn ? (
+            <Button
+              as={"a"}
+              fontSize={"sm"}
+              fontWeight={400}
+              variant={"link"}
+              href={"/login"}
+            >
+              Login
+            </Button>
+          ) : (
+            ""
+          )}
+
           <Button
             as={"a"}
             display={{ base: "none", md: "inline-flex" }}
@@ -143,13 +150,12 @@ const DesktopNav = () => {
   const popoverContentBgColor = useColorModeValue("white", "gray.800");
 
   return (
-    <Stack alignItems={'center'} direction={"row"} spacing={4}>
-      {
-        popoverContentBgColor === 'white' ?
-          <Image h={'16'} src={logo} />
-          :
-          <Image h={'16'} src={logoWhite} />
-      }
+    <Stack alignItems={"center"} direction={"row"} spacing={4}>
+      {popoverContentBgColor === "white" ? (
+        <Image h={"16"} src={logo} />
+      ) : (
+        <Image h={"16"} src={logoWhite} />
+      )}
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label}>
           <Popover trigger={"hover"} placement={"bottom-start"}>
