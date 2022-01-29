@@ -108,7 +108,7 @@ function Card({ name, price, image }) {
                 <Button variantColor="blue" mr={3} onClick={onClose}>
                   Close
                 </Button>
-                <Button as="a" href={'../packages'} leftIcon={<BsTools />} variant="ghost">Add-on Services</Button>
+                <Button as="a" href={'../services'} leftIcon={<BsTools />} variant="ghost">Add-on Services</Button>
               </ModalFooter>
             </ModalContent>
           </Modal>
