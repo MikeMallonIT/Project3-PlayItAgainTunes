@@ -49,3 +49,6 @@ import {
       </RadioGroup>
     </Stack>
   )
+
+  //Front-End
+//May need to be removed once Stripe is implemented to application 

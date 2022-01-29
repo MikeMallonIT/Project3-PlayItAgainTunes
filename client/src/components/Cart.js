@@ -74,3 +74,6 @@ import {
   
   export default Cart;
 
+  //Front-End 
+// Cart.js is the layout of the Cart page. 
+// This includes "Continue shopping"

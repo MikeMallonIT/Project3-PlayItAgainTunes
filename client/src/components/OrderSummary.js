@@ -110,3 +110,6 @@ import {
       </Stack>
     </Stack>
   )
+
+  //Front-end
+  // The OrderSummary is associated to Checkout.js> specific to the the bottom portion, which shows discount code, subtotal, shipping , Place Order and etc. 

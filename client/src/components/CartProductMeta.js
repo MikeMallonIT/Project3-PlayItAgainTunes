@@ -45,3 +45,5 @@ export const CartProductMeta = (props) => {
     )
   }
   
+//Cart Product Meta is associated to to the Image apperance, Heart save later
+// This maybe a component that may be unncessary 

@@ -91,3 +91,6 @@ export const CartItem = (props) => {
     </Flex>
   )
 }
+
+//Front-End
+//CartItem is associated to items in the Cart Page.
