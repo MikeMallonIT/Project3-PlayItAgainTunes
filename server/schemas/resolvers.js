@@ -1,5 +1,6 @@
 const { AuthenticationError } = require('apollo-server-express');
 const { User, Product, Category, Order } = require('../models');
+const { findById } = require('../models/Order');
 const { signToken } = require('../utils/auth');
 const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
@@ -29,8 +30,8 @@ const resolvers = {
         products: async (parent, { category, name }) => {
             const params = {};
 
-            if (Category) {
-                params.category = Category;
+            if (category) {
+                params.category = category;
             }
 
             if (name) {
@@ -40,6 +41,11 @@ const resolvers = {
             }
             return await Product.find(params).populate('category');
         },
+
+        //  products: async() => {
+        //   return await Product.find().populate('category');
+        //  },
+
         product: async (parent, { _id }) => {
             return await Product.findById(_id).populate('category');
         },
@@ -105,14 +111,13 @@ const resolvers = {
         },
         // add a third argument to the resolver to access data in our context (in this case products)
         addOrder: async (parent, { products }, context) => {
-            console.log(context);
             if (context.user) {
-                const order = new Order({
+                let order = new Order({
                     products
-                });
+                })
 
                 await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
-
+                // order = await Order.findById(order._id).populate('products');
                 return order;
             }
             throw new AuthenticationError('You are not logged in');
