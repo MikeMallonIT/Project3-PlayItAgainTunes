@@ -43,7 +43,20 @@ query products($category: ID, $name: String) {
 `;
 
 export const QUERY_CATEGORIES = gql`
-
+query {
+  categories {
+    _id
+  name
+  products{
+    _id
+    name
+    image
+    description
+    quantity
+    price
+  }
+  }
+}
 `;
 
 export const QUERY_USER = gql`
