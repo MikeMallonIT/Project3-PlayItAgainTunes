@@ -23,7 +23,9 @@ db.once("open", async () => {
       price: 15.00,
       image: 'acousticGuitar_512x512.jpg',
       quantity: 100,
-      category: categories[0]._id,
+      category: 
+        
+        categories[0]._id,
     },
     {
       name: "Electric Guitar",
