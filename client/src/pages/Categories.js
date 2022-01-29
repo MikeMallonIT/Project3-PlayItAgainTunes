@@ -1,16 +1,19 @@
-import react, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import { Button, Heading, Stack } from '@chakra-ui/react'
-import { SearchIcon } from '@chakra-ui/icons'
+//import { SearchIcon } from '@chakra-ui/icons'
 import Card from '../components/Card'
 import { Text } from '@chakra-ui/react'
-
+import { QUERY_CATEGORIES } from '../utils/queries';
+import { useQuery } from '@apollo/client';
 
 export default function Categories() {
 
     const [searchResults, setSearchResults] = useState();
-
-    const Categories = [
+    const { loading, data } = useQuery(QUERY_CATEGORIES);
+    const categories = data?.categories || []
+    console.log(categories)
+    const Category = [
         {
             label: "All Instruments",
             value: 'all',
@@ -18,7 +21,7 @@ export default function Categories() {
                 {
                     name: 'Item 1',
                     price: 500,
-                    image: 'https://images.unsplash.com/photo-1541689592655-f5f52825a3b8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Z3VpdGFyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60',
+                    image: '/images/acousticGuitar_512x512.jpg',
                 },
                 {
                     name: 'Item 2',
@@ -80,7 +83,7 @@ export default function Categories() {
                 {
                     name: 'Item 1',
                     price: 500,
-                    image: '../public/images/acousticGuitar_512x512.jpg',
+                    image: '/images/acousticGuitar_512x512.jpg',
                 },
                 {
                     name: 'Item 2',
@@ -166,11 +169,11 @@ export default function Categories() {
         },
     ]
 
-    useEffect(() => {
-        setSearchResults(Categories[0].label);
-    }, [])
+    // useEffect(() => {
+    //     setSearchResults(Categories[0].label);
+    // }, [Category])
 
-    console.log('searchResults', searchResults)
+    //console.log('searchResults', searchResults)
 
     return (
         <div id="Categories">
@@ -262,8 +265,8 @@ export default function Categories() {
                     <Text letterSpacing={1} fontWeight={600} align={'center'} fontSize='xl'>{searchResults}</Text>
                 </div>
                 <div className='d-flex flex-wrap' style={{ marginTop: 32 }}>
-                    {Categories.map((category, idx) =>
-                        searchResults && category.label == searchResults && category.items.map((item) =>
+                    {Category.map((category, idx) =>
+                        searchResults && category.label === searchResults && category.items.map((item) =>
                             <div className='singleCard' key={idx}>
                                 {console.log('categories ', category)}
                                 {console.log('search ', searchResults)}

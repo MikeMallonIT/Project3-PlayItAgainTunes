@@ -17,6 +17,7 @@ import NavBar from "./components/Navbar";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Checkout from "./components/Checkout";
+import ProductList from './components/ProductList';
 import { OrderSummary } from "./components/OrderSummary";
 import { CartOrderSummary } from "./components/CartOrderSummary";
 import { PaymentInformation } from "./components/PaymentInformation";
@@ -78,6 +79,9 @@ function App() {
             <Route exact path="/contact" element={<Contact />} />
             <Route exact path="/home" element={<Home />} />
             <Route exact path="/cart" element={<Cart />} />
+            <Route exact path="/productlist" element={<ProductList />} />;
+            ;
+            
           </Routes>
           <Footer/>
         </Suspense>

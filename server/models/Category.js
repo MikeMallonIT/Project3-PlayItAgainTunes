@@ -8,7 +8,11 @@ const categorySchema = new Schema({
         required: true,
         trim: true,
         
-    }
+    },
+    products: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Product'
+    }]
 });
 
 const Category = mongoose.model('Category', categorySchema);

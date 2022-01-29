@@ -46,7 +46,7 @@ function Card({ name, price, image }) {
 
 
         <Image
-          src={`acousticGuitar_512x512.jpg`}
+          src={image}
           alt={`Picture of ${name}`}
           roundedTop="lg"
           height={300}

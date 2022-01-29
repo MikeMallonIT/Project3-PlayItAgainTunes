@@ -24,11 +24,7 @@ const productSchema = new Schema({
         min: 0,
         default: 0
     },
-    category: {
-        type: Schema.Types.ObjectId, //To specify a type of ObjectId, use Schema.Types.ObjectId in our declaration; especially when we use a reference in our schema. In this case, the reference is Category
-        ref: 'Category',
-        required: true
-    }
+    
 });
 
  // call and tell mongoose that Product is the new model and productSchema is its instance to use for that model
