@@ -144,13 +144,18 @@ db.once("open", async () => {
   ]);
   await Category.deleteMany();
 
-  const categories = await Category.insertMany([
-    { name: "Guitar", products: [instruments[0]._id, instruments[1]._id, instruments[2]._id] },
-    { name: "Brass", products: [instruments[3]._id, instruments[4]._id, instruments[5]._id] },
-    { name: "Woodwind", products: [instruments[6]._id, instruments[7]._id, instruments[8]._id] },
-    { name: "Percussion", products: [instruments[9]._id, instruments[10]._id, instruments[11]._id] },
-    { name: "Services"},
-  ]);
+  await Category.create({
+    name: "Guitar",
+    products: [instruments[0]._id, instruments[1]._id, instruments[2]._id]
+  })
+
+  // const categories = await Category.insertMany([
+  //   { name: "Guitar", products: [instruments[0]._id, instruments[1]._id, instruments[2]._id] },
+  //   { name: "Brass", products: [instruments[3]._id, instruments[4]._id, instruments[5]._id] },
+  //   { name: "Woodwind", products: [instruments[6]._id, instruments[7]._id, instruments[8]._id] },
+  //   { name: "Percussion", products: [instruments[9]._id, instruments[10]._id, instruments[11]._id] },
+  //   { name: "Services"},
+  // ]);
 
 
   await User.deleteMany();
