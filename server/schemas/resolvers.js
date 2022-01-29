@@ -27,19 +27,19 @@ const resolvers = {
         categories: async () => {
             return await Category.find().populate('products');
         },
-        products: async (parent, { category, name }) => {
-            const params = {};
+        products: async (parent, { category, _id}) => {
+            // const params = {};
+          console.log(_id);
+            // if (products) {
+            //     params.category = category;
+            // }
 
-            if (category) {
-                params.category = category;
-            }
-
-            if (name) {
-                params.name = {
-                    $regex: name
-                };
-            }
-            return await Product.find(params).populate('category');
+            // if (_id) {
+            //     params.name = {
+            //         $regex: name
+            //     };
+            // }
+            return await Product.findById(_id);
         },
 
         //  products: async() => {
