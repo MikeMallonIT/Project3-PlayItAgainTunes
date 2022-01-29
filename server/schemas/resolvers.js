@@ -25,7 +25,7 @@ const resolvers = {
         },
 
         categories: async () => {
-            return await Category.find();
+            return await Category.find().populate('products');
         },
         products: async (parent, { category, name }) => {
             const params = {};

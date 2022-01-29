@@ -2,16 +2,7 @@ const db = require("./connection");
 const { Category, Product, User } = require("../models");
 
 db.once("open", async () => {
-  await Category.deleteMany();
-
-  const categories = await Category.insertMany([
-    { name: "Guitar" },
-    { name: "Brass" },
-    { name: "Woodwind" },
-    { name: "Percussion" },
-    { name: "Services" },
-  ]);
-
+  
   await Product.deleteMany();
 
   const instruments = await Product.insertMany([
@@ -23,9 +14,6 @@ db.once("open", async () => {
       price: 15.00,
       image: 'acousticGuitar_512x512.jpg',
       quantity: 100,
-      category: 
-        
-        categories[0]._id,
     },
     {
       name: "Electric Guitar",
@@ -35,7 +23,6 @@ db.once("open", async () => {
       price: 25.00,
       image: 'electricGuitar_512x512.jpg',
       quantity: 100,
-      category: categories[0]._id,
     },
     {
       name: "Bass Guitar",
@@ -45,7 +32,6 @@ db.once("open", async () => {
       price: 20.00,
       image: 'bassGuitar_512x512.jpg',
       quantity: 100,
-      category: categories[0]._id,
     },
     {
       name: "Trumpet",
@@ -55,7 +41,6 @@ db.once("open", async () => {
       price: 25.00,
       image: 'trumpet_512x512.jpg',
       quantity: 100,
-      category: categories[1]._id,
     },
     {
       name: "Trombone",
@@ -65,7 +50,6 @@ db.once("open", async () => {
       price: 25.00,
       image: 'trombone_512x512.jpg',
       quantity: 100,
-      category: categories[1]._id,
     },
     {
       name: "French Horn",
@@ -75,7 +59,6 @@ db.once("open", async () => {
       price: 40.00,
       image: 'frenchHorn_512x512.jpg',
       quantity: 100,
-      category: categories[1]._id,
     },
     {
       name: "Flute",
@@ -85,7 +68,6 @@ db.once("open", async () => {
       price: 30.00,
       image: 'flute_512x512.jpg',
       quantity: 100,
-      category: categories[2]._id,
     },
     {
       name: "Alto Saxophone",
@@ -95,7 +77,6 @@ db.once("open", async () => {
       price: 30.00,
       image: 'altoSax_512x512.jpg',
       quantity: 100,
-      category: categories[2]._id,
     },
     {
       name: "Hurdy-gurdy",
@@ -105,7 +86,6 @@ db.once("open", async () => {
       price: 30.00,
       image: 'hurdy_512x512.jpg',
       quantity: 100,
-      category: categories[2]._id,
     },
     {
       name: "Snare Drum",
@@ -115,7 +95,6 @@ db.once("open", async () => {
       price: 20.00,
       image: 'snare_512x512.jpg',
       quantity: 100,
-      category: categories[3]._id,
     },
     {
       name: "Bongo Drums",
@@ -125,7 +104,6 @@ db.once("open", async () => {
       price: 15.00,
       image: 'bongo_512x512.jpg',
       quantity: 100,
-      category: categories[3]._id,
     },
     {
       name: "Xylophone",
@@ -135,7 +113,6 @@ db.once("open", async () => {
       price: 40.00,
       image: 'xylophone_512x512.jpg',
       quantity: 100,
-      category: categories[3]._id,
     },
     {
       name: "Maintenance",
@@ -145,7 +122,6 @@ db.once("open", async () => {
       price: 35.00,
       image: 'service_512x512.jpg',
       quantity: 100,
-      category: categories[4]._id,
     },
     {
       name: "MaintenancePLUS",
@@ -155,7 +131,6 @@ db.once("open", async () => {
       price: 160.00,
       image: 'service_512x512.jpg',
       quantity: 100,
-      category: categories[4]._id,
     },
     {
       name: "ConcertMaster",
@@ -165,9 +140,18 @@ db.once("open", async () => {
       price: 300.00,
       image: 'service_512x512.jpg',
       quantity: 100,
-      category: categories[4]._id,
     },
   ]);
+  await Category.deleteMany();
+
+  const categories = await Category.insertMany([
+    { name: "Guitar", products: [instruments[0]._id, instruments[1]._id, instruments[2]._id] },
+    { name: "Brass", products: [instruments[3]._id, instruments[4]._id, instruments[5]._id] },
+    { name: "Woodwind", products: [instruments[6]._id, instruments[7]._id, instruments[8]._id] },
+    { name: "Percussion", products: [instruments[9]._id, instruments[10]._id, instruments[11]._id] },
+    { name: "Services"},
+  ]);
+
 
   await User.deleteMany();
 
