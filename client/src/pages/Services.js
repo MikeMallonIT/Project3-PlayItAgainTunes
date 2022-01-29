@@ -33,7 +33,7 @@ export default function ThreeTierPricing() {
     <Box py={12}>
       <VStack spacing={2} textAlign="center">
         <Heading as="h1" fontSize="4xl">
-          Packages
+          Services
         </Heading>
         <Text fontSize="lg" color={"gray.500"}>
           Add-ons to keep the music going!
