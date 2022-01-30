@@ -15,7 +15,7 @@ db.once("open", async () => {
       description:
         "Includes a laminate spruce top, rosewood fingerboard and bridge, and meranti back and sides. Gold die-cast tuners provide smooth and accurate tuning while a tortoise-pattern pickguard gives a bit more style.",
       price: 15.00,
-      image: 'acousticGuitar_512x512.jpg',
+      image: 'images/acousticGuitar_512x512.jpg',
       quantity: 100,
     },
     {
@@ -24,7 +24,7 @@ db.once("open", async () => {
       description:
         "It includes a lightweight body, a vintage-style tremolo bridge for classic pitch effects and three single-coil pickups for classic Strat tone. Amp included.",
       price: 25.00,
-      image: 'electricGuitar_512x512.jpg',
+      image: 'images/electricGuitar_512x512.jpg',
       quantity: 100,
     },
     {
@@ -33,7 +33,7 @@ db.once("open", async () => {
       description:
         "Born in Corona, California, the American Performer Precision Bass with rosewood fingerboard delivers the exceptional tone and feel you expect from an authentic Fender—along with new, player-oriented features that make it even more exciting to play.",
       price: 20.00,
-      image: 'bassGuitar_512x512.jpg',
+      image: 'images/bass_512x512.jpeg',
       quantity: 100,
     },
     {
@@ -42,7 +42,7 @@ db.once("open", async () => {
       description:
         "Features a red brass leadpipe seamlessly ending with a yellow brass bell. A clear laquer finish keeps resonance at an all time high for this beginner level instrument. Mouthpiece included.",
       price: 25.00,
-      image: 'trumpet_512x512.jpg',
+      image: 'images/trumpet_512x512.jpg',
       quantity: 100,
     },
     {
@@ -51,7 +51,7 @@ db.once("open", async () => {
       description:
         "Yellow brass all around for the best projection and a nickel silver handslide for smooth motion. Mouthpiece included.",
       price: 25.00,
-      image: 'trombone_512x512.jpg',
+      image: 'images/trombone_512x512.jpg',
       quantity: 100,
     },
     {
@@ -60,7 +60,7 @@ db.once("open", async () => {
       description:
         "Have you exceeded the capacities of your beginner French horn? If you answered yes, it's time to step up to the Yamaha YHR-567, an intermediate-level horn with the effortless response and rock-solid note centering you need to take your playing to a higher level.",
       price: 40.00,
-      image: 'frenchHorn_512x512.jpg',
+      image: 'images/frenchHorn_512x512.jpg',
       quantity: 100,
     },
     {
@@ -69,7 +69,7 @@ db.once("open", async () => {
       description:
         "Sterling silver plated for best resonance and offset G key which is perfect for smaller hands.",
       price: 30.00,
-      image: 'flute_512x512.jpg',
+      image: 'images/flute_512x512.jpg',
       quantity: 100,
     },
     {
@@ -78,7 +78,7 @@ db.once("open", async () => {
       description:
         "Gold lacquer for bright sound and great intonation are expected from this instrument. Also features an adjustable thumb rest to customize for each player. Mouthpiece, ligature, and strap included.",
       price: 30.00,
-      image: 'altoSax_512x512.jpg',
+      image: 'images/altoSax_512x512.jpg',
       quantity: 100,
     },
     {
@@ -87,7 +87,7 @@ db.once("open", async () => {
       description:
         "The Hurdy-Gurdy (or so-called in Ukraine Ukrainian lira or wheel lira) is an absolutely handmade unique musical instrument.",
       price: 30.00,
-      image: 'hurdy_512x512.jpg',
+      image: 'images/hurdey_512x512.jpeg',
       quantity: 100,
     },
     {
@@ -96,7 +96,7 @@ db.once("open", async () => {
       description:
         "14-inch chrome plated snare drum with an 8-inch practice pad included. Also has a drum stand and travel case.",
       price: 20.00,
-      image: 'snare_512x512.jpg',
+      image: 'images/snare_512x512.jpeg',
       quantity: 100,
     },
     {
@@ -105,7 +105,7 @@ db.once("open", async () => {
       description:
         "Pearl Elite Series Bongos offer up that warm, traditional bongo tone that percussionists around the world adore. Made with Thai Oak shells, these drums have a smooth tone that you will be sure to love.",
       price: 15.00,
-      image: 'bongo_512x512.jpg',
+      image: 'images/bongo_512x512.jpg',
       quantity: 100,
     },
     {
@@ -114,7 +114,7 @@ db.once("open", async () => {
       description:
         "Durable Paduk bars on this 2.5 octave xylophone. Includes a stand and travel case.",
       price: 40.00,
-      image: 'xylophone_512x512.jpg',
+      image: 'images/xylophone_512x512.jpeg',
       quantity: 100,
     },
     {
@@ -123,7 +123,7 @@ db.once("open", async () => {
       description:
         "Rental Insurance, Maintenance services, Includes starter accessories",
       price: 35.00,
-      image: 'service_512x512.jpg',
+      image: 'images/service_512x512.jpeg',
       quantity: 100,
     },
     {
@@ -132,7 +132,7 @@ db.once("open", async () => {
       description:
         "Rental Insurance, Loaner instrument during maintenance, Includes starter accessories, Includes textbook, 1 Semester (Aug-Dec or Jan-May)",
       price: 160.00,
-      image: 'service_512x512.jpg',
+      image: 'images/service_512x512.jpeg',
       quantity: 100,
     },
     {
@@ -141,7 +141,7 @@ db.once("open", async () => {
       description:
         "Rental Insurance, Loaner instrument during maintenance, Includes starter accessories, Includes textbook, 1 School Year (Aug-May)",
       price: 300.00,
-      image: 'service_512x512.jpg',
+      image: 'images/service_512x512.jpeg',
       quantity: 100,
     },
   ]);
