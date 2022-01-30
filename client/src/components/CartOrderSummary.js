@@ -12,12 +12,13 @@ import { loadStripe } from "@stripe/stripe-js";
 import { useLazyQuery } from "@apollo/client";
 import { useSelector } from "react-redux";
 import { QUERY_CHECKOUT } from "../utils/queries";
-import { idbPromise } from "../utils/helpers";
+//import { idbPromise } from "../utils/helpers";
 import Auth from "../utils/auth";
 import { FaArrowRight } from "react-icons/fa";
 import { formatPrice } from "./PriceTag";
 // import { cartData } from "../pages/_data";
 // import Checkout from './Checkout'
+
 
 const stripePromise = loadStripe(
   "pk_test_51KM3QnC6YTxwccfILC64JeSnBh9KaygMfQp2aioKxwKr1GI6szA0t6i02xNKdJlwTp2OOpg3etDTBhk5fEdo5nDx00oW0Xwqqx"
@@ -51,9 +52,11 @@ export const CartOrderSummary = () => {
   function calculateTotal() {
     let sum = 0;
     state.cart.forEach((item) => {
-      sum += item.price * item.quantity;
+
+      sum += item.price * item.purchaseQuantity;
     });
     return sum;
+    
   }
   function submitCheckout() {
     const productIds = [];
@@ -68,6 +71,20 @@ export const CartOrderSummary = () => {
     });
   }
 
+
+  function calculateTax() {
+    let taxPrice = 0;
+
+
+      state.cart.forEach((item) => {
+
+         taxPrice = item.price * 0.0825;
+      });
+    return taxPrice;
+
+    
+  }
+
   return (
     <Stack spacing="8" borderWidth="1px" rounded="lg" padding="8" width="full">
       <Heading size="md">Order Summary</Heading>
@@ -77,8 +94,20 @@ export const CartOrderSummary = () => {
           label="Subtotal"
           value={formatPrice(calculateTotal())}
         />
-        <OrderSummaryItem label="Shipping + Tax">
-          <Text textDecor="none">Calculate on next page</Text>
+        <OrderSummaryItem label="Shipping Cost">
+          {/* <Text textDecor="none"></Text> */}
+          <div className="shipping"></div>
+        </OrderSummaryItem>
+
+        <OrderSummaryItem 
+        label="Tax "
+        value={formatPrice(calculateTax())}
+        
+        >
+          {/* <Text textDecor="none">Taxes and shipping calculated at checkout</Text> */}
+          <div className="taxCost"></div>
+          
+          
         </OrderSummaryItem>
         {/* <OrderSummaryItem label="Coupon Code">
             <Link href="#" textDecor="underline">
