@@ -14,7 +14,7 @@ const resolvers = {
       if (context.user) {
         const userData = await User.findById(context.user._id).populate({
           path: "orders.products",
-          populate: "category",
+          // populate: "category",
         });
 
         userData.orders.sort((a, b) => b.purchaseDate - a.purchaseDate);
@@ -48,14 +48,15 @@ const resolvers = {
     },
 
     product: async (parent, { _id }) => {
-      return await Product.findById(_id).populate("category");
+      return await Product.findById(_id).populate("products");
     },
 
     order: async (parent, { _id }, context) => {
       if (context.user) {
         const user = await User.findById(context.user._id).populate({
           path: "orders.products",
-          populate: "category",
+          // populate: "category",
+          populate: "products",
         });
 
         return user.orders.id(_id);
