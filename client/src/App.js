@@ -10,25 +10,27 @@ import {
 import { setContext } from "@apollo/client/link/context";
 import { ChakraProvider, useColorMode } from "@chakra-ui/react";
 import "./index.css";
+import { Provider } from "react-redux";
+import store from "./utils/store.js";
 
 import "./assets/scss/global.scss";
 
 import NavBar from "./components/Navbar";
-import Header from "./components/Header";
+// import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Checkout from "./components/Checkout";
 import ProductList from "./components/ProductList";
-import { OrderSummary } from "./components/OrderSummary";
-import { CartOrderSummary } from "./components/CartOrderSummary";
-import { PaymentInformation } from "./components/PaymentInformation";
-import { ShippingInformation } from "./components/ShippingInformation";
-import { ShippingMethod } from "./components/ShippingMethod";
+// import { OrderSummary } from "./components/OrderSummary";
+// import { CartOrderSummary } from "./components/CartOrderSummary";
+// import { PaymentInformation } from "./components/PaymentInformation";
+// import { ShippingInformation } from "./components/ShippingInformation";
+// import { ShippingMethod } from "./components/ShippingMethod";
 
 //Pages
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import Detail from "./pages/Detail";
+// import Detail from "./pages/Detail";
 import Categories from "./pages/Categories";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -58,7 +60,7 @@ const client = new ApolloClient({
 function App() {
   // =====Wrap ChakraProvider at the root of your app
   return (
-    <>
+    <Provider store={store}>
       <ApolloProvider client={client}>
         <Router>
           <Suspense>
@@ -75,7 +77,7 @@ function App() {
               <Route exact path="/contact" element={<Contact />} />
               <Route exact path="/home" element={<Home />} />
               <Route exact path="/cart" element={<Cart />} />
-              <Route exact path="/productlist" element={<ProductList />} />; ;
+              {/* <Route exact path="/productlist" element={<ProductList />} />; ; */}
             </Routes>
             <Footer />
           </Suspense>
@@ -87,7 +89,7 @@ function App() {
       <CartItem></CartItem>
       <Cart></Cart> */}
       </ApolloProvider>
-    </>
+    </Provider>
   );
 }
 

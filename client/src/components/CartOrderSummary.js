@@ -3,14 +3,25 @@ import {
   Flex,
   Heading,
   Stack,
+  Link,
   Text,
   useColorModeValue as mode,
 } from "@chakra-ui/react";
-import * as React from "react";
+import React, { useEffect } from "react";
+import { loadStripe } from "@stripe/stripe-js";
+import { useLazyQuery } from "@apollo/client";
+import { useSelector } from "react-redux";
+import { QUERY_CHECKOUT } from "../utils/queries";
+import { idbPromise } from "../utils/helpers";
+import Auth from "../utils/auth";
 import { FaArrowRight } from "react-icons/fa";
 import { formatPrice } from "./PriceTag";
-import { cartData } from "../pages/_data";
+// import { cartData } from "../pages/_data";
 // import Checkout from './Checkout'
+
+const stripePromise = loadStripe(
+  "pk_test_51KM3QnC6YTxwccfILC64JeSnBh9KaygMfQp2aioKxwKr1GI6szA0t6i02xNKdJlwTp2OOpg3etDTBhk5fEdo5nDx00oW0Xwqqx"
+);
 
 const OrderSummaryItem = (props) => {
   const { label, value, children } = props;
@@ -26,13 +37,37 @@ const OrderSummaryItem = (props) => {
 
 // using cartData from _data
 export const CartOrderSummary = () => {
+  const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
+  const state = useSelector((state) => state);
+
+  useEffect(() => {
+    if (data) {
+      stripePromise.then((res) => {
+        res.redirectToCheckout({ sessionId: data.checkout.session });
+      });
+    }
+  }, [data]);
+
   function calculateTotal() {
     let sum = 0;
-    cartData.forEach((item) => {
+    state.cart.forEach((item) => {
       sum += item.price * item.quantity;
     });
     return sum;
   }
+  function submitCheckout() {
+    const productIds = [];
+
+    state.cart.forEach((item) => {
+      for (let i = 0; i < item.purchaseQuantity; i++) {
+        productIds.push(item._id);
+      }
+    });
+    getCheckout({
+      variables: { products: productIds },
+    });
+  }
+
   return (
     <Stack spacing="8" borderWidth="1px" rounded="lg" padding="8" width="full">
       <Heading size="md">Order Summary</Heading>
@@ -59,16 +94,21 @@ export const CartOrderSummary = () => {
           </Text>
         </Flex>
       </Stack>
-
-      <Button
-        colorScheme="cyan"
-        size="lg"
-        fontSize="md"
-        onClick={() => window.open("./checkout")}
-        rightIcon={<FaArrowRight />}
-      >
-        Checkout
-      </Button>
+      {Auth.loggedIn ? (
+        <Button
+          colorScheme="cyan"
+          size="lg"
+          fontSize="md"
+          onClick={submitCheckout}
+          rightIcon={<FaArrowRight />}
+        >
+          Checkout
+        </Button>
+      ) : (
+        <Link fontSize="lg" fontWeight="semibold">
+          Login to get your rental started!
+        </Link>
+      )}
     </Stack>
   );
 };
