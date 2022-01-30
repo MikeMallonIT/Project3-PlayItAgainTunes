@@ -8,6 +8,7 @@ import {
 import * as React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { REMOVE_FROM_CART } from "../utils/actions";
+import { idbPromise } from "../utils/helpers";
 import { PriceTag } from "./PriceTag";
 import { CartProductMeta } from "./CartProductMeta";
 
@@ -36,12 +37,13 @@ export const CartItem = (props) => {
 
   const dispatch = useDispatch();
 
-  const onClickDelete = (item) => {
-    console.log("deleted");
+  const removeFromCart = (item) => {
+    console.log("deleted", item);
     dispatch({
       type: REMOVE_FROM_CART,
       _id: item._id,
     });
+    idbPromise("cart", "delete", { ...item });
   };
 
   const handleQChange = () => {
@@ -49,6 +51,7 @@ export const CartItem = (props) => {
   };
   return (
     <Flex
+      key={_id}
       direction={{
         base: "column",
         md: "row",
@@ -56,12 +59,7 @@ export const CartItem = (props) => {
       justify="space-between"
       align="center"
     >
-      <CartProductMeta
-        key={_id}
-        name={name}
-        description={description}
-        image={image}
-      />
+      <CartProductMeta name={name} description={description} image={image} />
 
       {/* Desktop */}
       <Flex
@@ -76,7 +74,7 @@ export const CartItem = (props) => {
         <PriceTag price={price} />
         <CloseButton
           aria-label={`Delete ${name} from cart`}
-          onClick={onClickDelete}
+          onClick={() => removeFromCart(props)}
         />
       </Flex>
 
@@ -91,7 +89,11 @@ export const CartItem = (props) => {
           md: "none",
         }}
       >
-        <Link fontSize="sm" textDecor="underline" onClick={onClickDelete}>
+        <Link
+          fontSize="sm"
+          textDecor="underline"
+          onClick={() => removeFromCart(props)}
+        >
           Delete
         </Link>
         <QuantitySelect value={quantity} onChange={handleQChange} />
