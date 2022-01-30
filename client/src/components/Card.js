@@ -30,6 +30,7 @@ const data = {
   price: 4.5,
 };
 
+<<<<<<< HEAD
 function Card(item) {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
@@ -38,6 +39,9 @@ function Card(item) {
 
   const { cart } = state;
 
+=======
+function Card({ name, price, image, des }) {
+>>>>>>> main
   console.log("name ", name, price, image);
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
@@ -103,10 +107,10 @@ function Card(item) {
           <Modal isOpen={isOpen} onClose={onClose}>
             <ModalOverlay />
             <ModalContent>
-              <ModalHeader>Item</ModalHeader>
+              <ModalHeader>{name}</ModalHeader>
               <ModalCloseButton />
               <ModalBody>
-                <Text count={2}>Enter Text Here </Text>
+                <Text count={2}>{des}</Text>
               </ModalBody>
 
               <ModalFooter>
