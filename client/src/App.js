@@ -19,6 +19,7 @@ import NavBar from "./components/Navbar";
 // import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Checkout from "./components/Checkout";
+import CategoryMenu from "./components/CategoryMenu";
 import ProductList from "./components/ProductList";
 // import { OrderSummary } from "./components/OrderSummary";
 // import { CartOrderSummary } from "./components/CartOrderSummary";
@@ -37,6 +38,7 @@ import Contact from "./pages/Contact";
 import Services from "./pages/Services";
 import Cart from "./components/Cart";
 import { Suspense } from "react";
+import OrderHistory from "./pages/OrderHistory";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -77,6 +79,8 @@ function App() {
               <Route exact path="/contact" element={<Contact />} />
               <Route exact path="/home" element={<Home />} />
               <Route exact path="/cart" element={<Cart />} />
+              <Route exact path="/categorymenu" element={<CategoryMenu />} />
+              <Route exact path="/orderhistory" element={<OrderHistory />} />
               {/* <Route exact path="/productlist" element={<ProductList />} />; ; */}
             </Routes>
             <Footer />
