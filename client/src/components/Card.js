@@ -22,6 +22,8 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { BsTools } from "react-icons/bs";
 import { FiShoppingCart } from "react-icons/fi";
+import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../utils/actions";
+import { idbPromise } from "../utils/helpers";
 
 const data = {
   imageURL:
@@ -30,18 +32,35 @@ const data = {
   price: 4.5,
 };
 
-<<<<<<< HEAD
 function Card(item) {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
 
-  const { _id, name, description, quantity, image, price } = item;
+  const { _id, name, price, image, des, quantity } = item;
 
   const { cart } = state;
 
-=======
-function Card({ name, price, image, des }) {
->>>>>>> main
+  const addToCart = () => {
+    const itemInCart = cart.find((cartItem) => cartItem._id === _id);
+    if (itemInCart) {
+      dispatch({
+        type: UPDATE_CART_QUANTITY,
+        _id: _id,
+        purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
+      });
+      idbPromise("cart", "put", {
+        ...itemInCart,
+        purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
+      });
+    } else {
+      dispatch({
+        type: ADD_TO_CART,
+        product: { ...item, purchaseQuantity: 1 },
+      });
+      idbPromise("cart", "put", { ...item, purchaseQuantity: 1 });
+    }
+  };
+
   console.log("name ", name, price, image);
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
@@ -88,7 +107,7 @@ function Card({ name, price, image, des }) {
               color={"gray.800"}
               fontSize={"1.2em"}
             >
-              <chakra.a href={"#"} display={"flex"}>
+              <chakra.a display={"flex"} onClick={addToCart}>
                 <Icon as={FiShoppingCart} h={7} w={7} alignSelf={"center"} />
               </chakra.a>
             </Tooltip>
