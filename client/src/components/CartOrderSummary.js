@@ -111,7 +111,7 @@ export const CartOrderSummary = () => {
         />
         <OrderSummaryItem label="Shipping Cost">
           {/* <Text textDecor="none"></Text> */}
-          <div className="shipping"></div>
+          <div className="shipping">Free</div>
         </OrderSummaryItem>
 
         <OrderSummaryItem 
