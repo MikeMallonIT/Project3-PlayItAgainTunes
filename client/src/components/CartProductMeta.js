@@ -9,7 +9,7 @@ import {
     useColorModeValue as mode,
   } from '@chakra-ui/react'
   import * as React from 'react'
-  import { FiHeart } from 'react-icons/fi'
+  import { FiTool } from 'react-icons/fi'
 
 export const CartProductMeta = (props) => {
     const { isGiftWrapping = true, image, name, description } = props
@@ -34,9 +34,9 @@ export const CartProductMeta = (props) => {
           </Stack>
           {isGiftWrapping && (
             <HStack spacing="1" mt="3" color={mode('gray.600', 'gray.400')}>
-              <Icon as={FiHeart} boxSize="4" />
-              <Link fontSize="sm" textDecoration="underline">
-                Save for later
+              <Icon as={FiTool} boxSize="4" />
+              <Link fontSize="sm" textDecoration="underline" href={"../services"}>
+                Add-on Services
               </Link>
             </HStack>
           )}
