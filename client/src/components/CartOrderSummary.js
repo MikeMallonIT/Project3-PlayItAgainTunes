@@ -10,12 +10,13 @@ import {
 import React, { useEffect } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 import { useLazyQuery } from "@apollo/client";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { QUERY_CHECKOUT } from "../utils/queries";
-//import { idbPromise } from "../utils/helpers";
+import { idbPromise } from "../utils/helpers";
 import Auth from "../utils/auth";
 import { FaArrowRight } from "react-icons/fa";
 import { formatPrice } from "./PriceTag";
+import { ADD_MULTIPLE_TO_CART } from '../utils/actions';
 // import { cartData } from "../pages/_data";
 // import Checkout from './Checkout'
 
@@ -39,25 +40,74 @@ const OrderSummaryItem = (props) => {
 // using cartData from _data
 export const CartOrderSummary = () => {
   const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
+  
+  const dispatch = useDispatch();
   const state = useSelector((state) => state);
 
   useEffect(() => {
     if (data) {
       stripePromise.then((res) => {
         res.redirectToCheckout({ sessionId: data.checkout.session });
+        
       });
     }
   }, [data]);
 
-  function calculateSubTotal() {
+  useEffect(() => {
+    async function getCart() {
+      const cart = await idbPromise('cart', 'get');
+      dispatch({ type: ADD_MULTIPLE_TO_CART, products: [...cart] });
+    }
+    if (!state.cart.length) {
+      getCart();
+    }
+  }, [state.cart.length, dispatch]);
+
+
+  // function calculateSubTotal() {
+  //   let sum = 0;
+  //   state.cart.forEach((item) => {
+
+  //     sum += item.price * item.purchaseQuantity;
+  //   });
+  //   return sum;
+    
+  // }
+  
+
+  // function calculateTax() {
+  //   let taxPrice = 0;
+
+
+  //     state.cart.forEach((item) => {
+
+  //        taxPrice = item.price * 0.0825;
+         
+  //     });
+  //   return taxPrice;
+  // }
+
+  // function calculateShippingCost() {
+  //   let shippingCost = 20;
+
+//return shippingCost;
+  
+
+
+  function calculateTotal() {
     let sum = 0;
+
     state.cart.forEach((item) => {
 
-      sum += item.price * item.purchaseQuantity;
-    });
-    return sum;
-    
+
+      sum += (item.price * item.purchaseQuantity)  ;
+
+   });
+
+   return sum.toFixed(2);
+
   }
+
   function submitCheckout() {
     const productIds = [];
 
@@ -72,34 +122,6 @@ export const CartOrderSummary = () => {
   }
 
 
-  function calculateTax() {
-    let taxPrice = 0;
-
-
-      state.cart.forEach((item) => {
-
-         taxPrice = item.price * 0.0825;
-      });
-    return taxPrice;
-  }
-
-
-  function calculateTotal() {
-    let sum = 0;
-
-    state.cart.forEach((item) => {
-    let taxPrice = 0;
-
-      taxPrice = item.price * 0.0825;
-
-      sum += item.price * item.purchaseQuantity + taxPrice;
-
-   });
-
-   return sum;
-
-  }
-
   return (
     <Stack spacing="8" borderWidth="1px" rounded="lg" padding="8" width="full">
       <Heading size="md">Order Summary</Heading>
@@ -107,16 +129,18 @@ export const CartOrderSummary = () => {
       <Stack spacing="6">
         <OrderSummaryItem
           label="Subtotal"
-          value={formatPrice(calculateSubTotal())}
+          value={formatPrice(calculateTotal())}
         />
-        <OrderSummaryItem label="Shipping Cost">
+        <OrderSummaryItem 
+        label="Shipping Cost"
+        // value={formatPrice(calculateShippingCost())}
+        >
           {/* <Text textDecor="none"></Text> */}
           <div className="shipping">Free</div>
         </OrderSummaryItem>
 
         <OrderSummaryItem 
         label="Tax "
-        // value={formatPrice(calculateTax())}
         
         >
           {/* <Text textDecor="none">Taxes and shipping calculated at checkout</Text> */}
