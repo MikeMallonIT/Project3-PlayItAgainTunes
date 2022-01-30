@@ -1,14 +1,22 @@
-import { CloseButton, Flex, Link, Select, useColorModeValue } from '@chakra-ui/react'
-import * as React from 'react'
-import { PriceTag } from './PriceTag'
-import { CartProductMeta } from './CartProductMeta'
+import {
+  CloseButton,
+  Flex,
+  Link,
+  Select,
+  useColorModeValue,
+} from "@chakra-ui/react";
+import * as React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { REMOVE_FROM_CART } from "../utils/actions";
+import { PriceTag } from "./PriceTag";
+import { CartProductMeta } from "./CartProductMeta";
 
 const QuantitySelect = (props) => {
   return (
     <Select
       maxW="64px"
       aria-label="Select quantity"
-      focusBorderColor={useColorModeValue('blue.500', 'blue.200')}
+      focusBorderColor={useColorModeValue("blue.500", "blue.200")}
       {...props}
     >
       <option value="1">1</option>
@@ -16,35 +24,43 @@ const QuantitySelect = (props) => {
       <option value="3">3</option>
       <option value="4">4</option>
     </Select>
-  )
-}
+  );
+};
 
 export const CartItem = (props) => {
-  const {
-    isGiftWrapping,
-    name,
-    description,
-    quantity,
-    imageUrl,
-    currency,
-    price,
-    onChangeQuantity,
-    onClickDelete,
-  } = props
+  const { _id, name, description, quantity, image, price } = props;
+
+  useSelector((state) => {
+    return state;
+  });
+
+  const dispatch = useDispatch();
+
+  const onClickDelete = (item) => {
+    console.log("deleted");
+    dispatch({
+      type: REMOVE_FROM_CART,
+      _id: item._id,
+    });
+  };
+
+  const handleQChange = () => {
+    console.log("changed quantity");
+  };
   return (
     <Flex
       direction={{
-        base: 'column',
-        md: 'row',
+        base: "column",
+        md: "row",
       }}
       justify="space-between"
       align="center"
     >
       <CartProductMeta
+        key={_id}
         name={name}
         description={description}
-        image={imageUrl}
-        isGiftWrapping={isGiftWrapping}
+        image={image}
       />
 
       {/* Desktop */}
@@ -52,18 +68,16 @@ export const CartItem = (props) => {
         width="full"
         justify="space-between"
         display={{
-          base: 'none',
-          md: 'flex',
+          base: "none",
+          md: "flex",
         }}
       >
-        <QuantitySelect
-          value={quantity}
-          onChange={(e) => {
-            onChangeQuantity?.(+e.currentTarget.value)
-          }}
+        <QuantitySelect value={quantity} onChange={handleQChange} />
+        <PriceTag price={price} />
+        <CloseButton
+          aria-label={`Delete ${name} from cart`}
+          onClick={onClickDelete}
         />
-        <PriceTag price={price} currency={currency} />
-        <CloseButton aria-label={`Delete ${name} from cart`} onClick={onClickDelete} />
       </Flex>
 
       {/* Mobile */}
@@ -73,24 +87,19 @@ export const CartItem = (props) => {
         width="full"
         justify="space-between"
         display={{
-          base: 'flex',
-          md: 'none',
+          base: "flex",
+          md: "none",
         }}
       >
-        <Link fontSize="sm" textDecor="underline">
+        <Link fontSize="sm" textDecor="underline" onClick={onClickDelete}>
           Delete
         </Link>
-        <QuantitySelect
-          value={quantity}
-          onChange={(e) => {
-            onChangeQuantity?.(+e.currentTarget.value)
-          }}
-        />
-        <PriceTag price={price} currency={currency} />
+        <QuantitySelect value={quantity} onChange={handleQChange} />
+        <PriceTag price={price} />
       </Flex>
     </Flex>
-  )
-}
+  );
+};
 
 //Front-End
 //CartItem is associated to items in the Cart Page.

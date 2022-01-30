@@ -8,7 +8,7 @@ import {
   UPDATE_CURRENT_CATEGORY,
   CLEAR_CART,
   TOGGLE_CART,
-} from './actions';
+} from "./actions";
 
 // Move initialState into this file
 const initialState = {
@@ -16,14 +16,12 @@ const initialState = {
   cart: [],
   cartOpen: false,
   categories: [],
-  currentCategory: '',
-}
-
+  currentCategory: "",
+};
 
 // Set initial state as state
 export const reducer = (state = initialState, action) => {
   switch (action.type) {
-
     case UPDATE_PRODUCTS:
       return {
         ...state,
