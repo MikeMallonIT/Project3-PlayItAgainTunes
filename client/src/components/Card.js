@@ -19,6 +19,7 @@ import {
   Text,
   useDisclosure,
 } from "@chakra-ui/react";
+import { useDispatch, useSelector } from "react-redux";
 import { BsTools } from "react-icons/bs";
 import { FiShoppingCart } from "react-icons/fi";
 
@@ -29,7 +30,14 @@ const data = {
   price: 4.5,
 };
 
-function Card({ name, price, image }) {
+function Card(item) {
+  const dispatch = useDispatch();
+  const state = useSelector((state) => state);
+
+  const { _id, name, description, quantity, image, price } = item;
+
+  const { cart } = state;
+
   console.log("name ", name, price, image);
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
