@@ -44,6 +44,10 @@ const NAV_ITEMS = [
     label: "Cart",
     href: "/cart",
   },
+  {
+    label: "Order History",
+    href: "/orderhistory",
+  },
 ];
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
