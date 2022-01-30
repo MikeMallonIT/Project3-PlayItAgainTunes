@@ -8,7 +8,6 @@ import { idbPromise } from "../utils/helpers";
 import { QUERY_CATEGORIES, QUERY_PRODUCTS } from "../utils/queries";
 import { useQuery } from "@apollo/client";
 
-
 export default function Categories() {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
@@ -48,28 +47,27 @@ export default function Categories() {
 
   const categories = data?.categories || [];
   console.log(categories);
-  
-  const Category =[
-      {
-        label: "Brass Instruments",
-        value: "brass",
-              items: [
-                {
-                  name: "Acoustic Guitar",
-                 
-                }
-              ]
-      },
-      {
-        label: "Woodwind Instruments"
-      },
-      {
-        label: "Percussion"
-      },
-      {
-        label: "Guitars"
-      }
-  ]
+
+  const Category = [
+    {
+      label: "Brass Instruments",
+      value: "brass",
+      items: [
+        {
+          name: "Acoustic Guitar",
+        },
+      ],
+    },
+    {
+      label: "Woodwind Instruments",
+    },
+    {
+      label: "Percussion",
+    },
+    {
+      label: "Guitars",
+    },
+  ];
   return (
     <div id="Categories">
       <div className="leftComponent">
@@ -204,7 +202,6 @@ export default function Categories() {
                 {/* {console.log("categories ", category)}
                   {console.log("search ", searchResults)} */}
                 <Card
-                  key={product._id}
                   _id={product._id}
                   name={product.name}
                   price={product.price}

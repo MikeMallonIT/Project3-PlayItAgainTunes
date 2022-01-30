@@ -72,8 +72,15 @@ export const Cart = () => {
           </Heading>
           {state.cart.length ? (
             <Stack spacing="6">
-              {state.cart.map((item) => (
-                <CartItem key={item.id} {...item} />
+              {state.cart.map((product) => (
+                <CartItem
+                  key={product._id}
+                  _id={product._id}
+                  name={product.name}
+                  price={product.price}
+                  image={product.image}
+                  des={product.description}
+                />
               ))}
             </Stack>
           ) : (
