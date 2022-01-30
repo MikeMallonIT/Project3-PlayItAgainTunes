@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-
 import { Button, Heading, Stack } from "@chakra-ui/react";
-//import { SearchIcon } from '@chakra-ui/icons'
 import Card from "../components/Card";
 import { Text } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
@@ -9,6 +7,7 @@ import { UPDATE_PRODUCTS } from "../utils/actions";
 import { idbPromise } from "../utils/helpers";
 import { QUERY_CATEGORIES, QUERY_PRODUCTS } from "../utils/queries";
 import { useQuery } from "@apollo/client";
+
 
 export default function Categories() {
   const dispatch = useDispatch();
@@ -45,197 +44,35 @@ export default function Categories() {
     );
   }
 
-  // const [searchResults, setSearchResults] = useState();
-  // const { loading, data } = useQuery(QUERY_CATEGORIES);
-  // const categories = data?.categories || [];
-  // console.log(categories);
-  //   const Category = [
-  //     {
-  //       label: "All Instruments",
-  //       value: "all",
-  //       items: [
-  //         {
-  //           name: "Item 1",
-  //           price: 500,
-  //           image: "/images/acousticGuitar_512x512.jpg",
-  //         },
-  //         {
-  //           name: "Item 2",
-  //           price: 600,
-  //           image:
-  //             "https://images.unsplash.com/photo-1550291652-6ea9114a47b1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Z3VpdGFyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-  //         },
-  //         {
-  //           name: "Item 3",
-  //           price: 700,
-  //           image:
-  //             "https://media.istockphoto.com/photos/close-up-on-classic-guitar-bridge-focus-on-foreground-picture-id1300197680?b=1&k=20&m=1300197680&s=170667a&w=0&h=wiQZS6TE80V1_Ew6XIarhDsIe2JAoiTv0Hq9slLPVwk=",
-  //         },
-  //         {
-  //           name: "Item 4",
-  //           price: 700,
-  //           image:
-  //             "https://media.istockphoto.com/photos/close-up-on-classic-guitar-bridge-focus-on-foreground-picture-id1300197680?b=1&k=20&m=1300197680&s=170667a&w=0&h=wiQZS6TE80V1_Ew6XIarhDsIe2JAoiTv0Hq9slLPVwk=",
-  //         },
-  //         {
-  //           name: "Item 5",
-  //           price: 700,
-  //           image:
-  //             "https://media.istockphoto.com/photos/close-up-on-classic-guitar-bridge-focus-on-foreground-picture-id1300197680?b=1&k=20&m=1300197680&s=170667a&w=0&h=wiQZS6TE80V1_Ew6XIarhDsIe2JAoiTv0Hq9slLPVwk=",
-  //         },
-  //         {
-  //           name: "Item 6",
-  //           price: 700,
-  //           image:
-  //             "https://media.istockphoto.com/photos/close-up-on-classic-guitar-bridge-focus-on-foreground-picture-id1300197680?b=1&k=20&m=1300197680&s=170667a&w=0&h=wiQZS6TE80V1_Ew6XIarhDsIe2JAoiTv0Hq9slLPVwk=",
-  //         },
-  //         {
-  //           name: "Item 7",
-  //           price: 700,
-  //           image:
-  //             "https://media.istockphoto.com/photos/close-up-on-classic-guitar-bridge-focus-on-foreground-picture-id1300197680?b=1&k=20&m=1300197680&s=170667a&w=0&h=wiQZS6TE80V1_Ew6XIarhDsIe2JAoiTv0Hq9slLPVwk=",
-  //         },
-  //         {
-  //           name: "Item 8",
-  //           price: 700,
-  //           image:
-  //             "https://media.istockphoto.com/photos/close-up-on-classic-guitar-bridge-focus-on-foreground-picture-id1300197680?b=1&k=20&m=1300197680&s=170667a&w=0&h=wiQZS6TE80V1_Ew6XIarhDsIe2JAoiTv0Hq9slLPVwk=",
-  //         },
-  //         {
-  //           name: "Item 9",
-  //           price: 700,
-  //           image:
-  //             "https://media.istockphoto.com/photos/close-up-on-classic-guitar-bridge-focus-on-foreground-picture-id1300197680?b=1&k=20&m=1300197680&s=170667a&w=0&h=wiQZS6TE80V1_Ew6XIarhDsIe2JAoiTv0Hq9slLPVwk=",
-  //         },
-  //         {
-  //           name: "Item 10",
-  //           price: 700,
-  //           image:
-  //             "https://media.istockphoto.com/photos/close-up-on-classic-guitar-bridge-focus-on-foreground-picture-id1300197680?b=1&k=20&m=1300197680&s=170667a&w=0&h=wiQZS6TE80V1_Ew6XIarhDsIe2JAoiTv0Hq9slLPVwk=",
-  //         },
-  //         {
-  //           name: "Item 11",
-  //           price: 700,
-  //           image:
-  //             "https://media.istockphoto.com/photos/close-up-on-classic-guitar-bridge-focus-on-foreground-picture-id1300197680?b=1&k=20&m=1300197680&s=170667a&w=0&h=wiQZS6TE80V1_Ew6XIarhDsIe2JAoiTv0Hq9slLPVwk=",
-  //         },
-  //         {
-  //           name: "Item 12",
-  //           price: 700,
-  //           image:
-  //             "https://media.istockphoto.com/photos/close-up-on-classic-guitar-bridge-focus-on-foreground-picture-id1300197680?b=1&k=20&m=1300197680&s=170667a&w=0&h=wiQZS6TE80V1_Ew6XIarhDsIe2JAoiTv0Hq9slLPVwk=",
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       label: "Brass Instruments",
-  //       value: "brass",
-  //       items: [
-  //         {
-  //           name: "Item 1",
-  //           price: 500,
-  //           image: "/images/acousticGuitar_512x512.jpg",
-  //         },
-  //         {
-  //           name: "Item 2",
-  //           price: 600,
-  //           image:
-  //             "https://images.unsplash.com/photo-1550291652-6ea9114a47b1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NHx8Z3VpdGFyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-  //         },
-  //         {
-  //           name: "Item 3",
-  //           price: 700,
-  //           image:
-  //             "https://media.istockphoto.com/photos/close-up-on-classic-guitar-bridge-focus-on-foreground-picture-id1300197680?b=1&k=20&m=1300197680&s=170667a&w=0&h=wiQZS6TE80V1_Ew6XIarhDsIe2JAoiTv0Hq9slLPVwk=",
-  //         },
-  //       ],
-  //       // subLabel: "Trumpet and Trombone",/
-  //     },
-  //     {
-  //       label: "Woodwind Instruments",
-  //       // subLabel: "Flute and Saxophone ",
-  //       value: "woodwind",
-  //       items: [
-  //         {
-  //           name: "Item 1",
-  //           price: 500,
-  //           image:
-  //             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDP6OYuwQ4zlJAce963kXyudQIbpLDFxz8ug&usqp=CAU",
-  //         },
-  //         {
-  //           name: "Item 2",
-  //           price: 600,
-  //           image:
-  //             "https://cdn.britannica.com/w:400,h:300,c:crop/21/176321-050-AC4BB7EF/Guitar-inlays-Venice.jpg",
-  //         },
-  //         {
-  //           name: "Item 3",
-  //           price: 700,
-  //           image: "",
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       label: "Guitars",
-  //       // subLabel: "Electric and Acoustic ",
-  //       value: "guitars",
-  //       items: [
-  //         {
-  //           name: "Item 1",
-  //           price: 500,
-  //           image:
-  //             "https://images.unsplash.com/photo-1561777848-6a56e08d6a26?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGd1aXRhcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
-  //         },
-  //         {
-  //           name: "Item 2",
-  //           price: 600,
-  //           image:
-  //             "https://images.unsplash.com/photo-1561777848-6a56e08d6a26?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGd1aXRhcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
-  //         },
-  //         {
-  //           name: "Item 3",
-  //           price: 700,
-  //           image:
-  //             "https://images.unsplash.com/photo-1561777848-6a56e08d6a26?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fGd1aXRhcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60",
-  //         },
-  //       ],
-  //     },
-  //     {
-  //       label: "Percussion",
-  //       // subLabel: "Drums",
-  //       value: "precussion",
-  //       items: [
-  //         {
-  //           name: "Item 1",
-  //           price: 500,
-  //           image:
-  //             "https://images.unsplash.com/photo-1556449895-a33c9dba33dd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8Z3VpdGFyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-  //         },
-  //         {
-  //           name: "Item 2",
-  //           price: 600,
-  //           image:
-  //             "https://images.unsplash.com/photo-1514649923863-ceaf75b7ec00?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8Z3VpdGFyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60   ",
-  //         },
-  //         {
-  //           name: "Item 3",
-  //           price: 700,
-  //           image:
-  //             "https://images.unsplash.com/photo-1605020420620-20c943cc4669?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8Z3VpdGFyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60",
-  //         },
-  //       ],
-  //     },
-  //   ];
+  const [searchResults, setSearchResults] = useState();
 
-  // useEffect(() => {
-  //     setSearchResults(Categories[0].label);
-  // }, [Category])
-
-  //console.log('searchResults', searchResults)
-
+  const categories = data?.categories || [];
+  console.log(categories);
+  
+  const Category =[
+      {
+        label: "Brass Instruments",
+        value: "brass",
+              items: [
+                {
+                  name: "Acoustic Guitar",
+                 
+                }
+              ]
+      },
+      {
+        label: "Woodwind Instruments"
+      },
+      {
+        label: "Percussion"
+      },
+      {
+        label: "Guitars"
+      }
+  ]
   return (
     <div id="Categories">
-      {/* <div className="leftComponent">
+      <div className="leftComponent">
         <Stack spacing={6}>
           <Heading
             letterSpacing={2}
@@ -248,7 +85,6 @@ export default function Categories() {
             Categories
           </Heading>
         </Stack>
-
         <Stack>
           <Button
             size="md"
@@ -266,7 +102,6 @@ export default function Categories() {
           >
             All Instruments
           </Button>
-
           <Button
             size="md"
             height="48px"
@@ -283,7 +118,6 @@ export default function Categories() {
           >
             Woodwind Instruments
           </Button>
-
           <Button
             size="md"
             height="48px"
@@ -300,7 +134,6 @@ export default function Categories() {
           >
             Brass Instruments
           </Button>
-
           <Button
             size="md"
             height="48px"
@@ -317,7 +150,6 @@ export default function Categories() {
           >
             Percussion
           </Button>
-
           <Button
             size="md"
             height="48px"
@@ -335,7 +167,7 @@ export default function Categories() {
             Guitars
           </Button>
         </Stack>
-      </div> */}
+      </div>
       <div className="rightComponent">
         <div>
           <Text
@@ -353,14 +185,14 @@ export default function Categories() {
           </Text>
         </div>
         <div style={{ marginTop: 16 }}>
-          {/* <Text
+          <Text
             letterSpacing={1}
             fontWeight={600}
             align={"center"}
             fontSize="xl"
           >
             {searchResults}
-          </Text> */}
+          </Text>
         </div>
         <div className="d-flex flex-wrap" style={{ marginTop: 32 }}>
           {filterProducts().map(
