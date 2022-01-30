@@ -29,7 +29,7 @@ const data = {
   price: 4.5,
 };
 
-function Card({ name, price, image }) {
+function Card({ name, price, image, des }) {
   console.log("name ", name, price, image);
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
@@ -95,10 +95,10 @@ function Card({ name, price, image }) {
           <Modal isOpen={isOpen} onClose={onClose}>
             <ModalOverlay />
             <ModalContent>
-              <ModalHeader>Item</ModalHeader>
+              <ModalHeader>{name}</ModalHeader>
               <ModalCloseButton />
               <ModalBody>
-                <Text count={2}>Enter Text Here </Text>
+                <Text count={2}>{des}</Text>
               </ModalBody>
 
               <ModalFooter>
