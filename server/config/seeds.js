@@ -96,7 +96,7 @@ db.once("open", async () => {
       description:
         "14-inch chrome plated snare drum with an 8-inch practice pad included. Also has a drum stand and travel case.",
       price: 20.00,
-      image: 'images/snare_512x512.jpg',
+      image: 'images/snare_512x512.jpeg',
       quantity: 100,
     },
     {
