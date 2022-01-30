@@ -107,33 +107,43 @@ export default function WithSubnavigation() {
           spacing={6}
         >
           {Auth.loggedIn ? (
+            <>
+              <Button
+                as={"a"}
+                fontSize={"sm"}
+                fontWeight={400}
+                variant={"link"}
+                href={"/login"}
+              >
+                Login
+              </Button>
+
+              <Button
+                as={"a"}
+                display={{ base: "none", md: "inline-flex" }}
+                fontSize={"sm"}
+                fontWeight={600}
+                color={"white"}
+                bg={"cyan.400"}
+                href={"/signup"}
+                _hover={{
+                  bg: "cyan.300",
+                }}
+              >
+                Sign Up
+              </Button>
+            </>
+          ) : (
             <Button
               as={"a"}
               fontSize={"sm"}
               fontWeight={400}
               variant={"link"}
-              href={"/login"}
+              onClick={() => Auth.logout()}
             >
-              Login
+              Logout
             </Button>
-          ) : (
-            ""
           )}
-
-          <Button
-            as={"a"}
-            display={{ base: "none", md: "inline-flex" }}
-            fontSize={"sm"}
-            fontWeight={600}
-            color={"white"}
-            bg={"cyan.400"}
-            href={"/signup"}
-            _hover={{
-              bg: "cyan.300",
-            }}
-          >
-            Sign Up
-          </Button>
         </Stack>
       </Flex>
 
