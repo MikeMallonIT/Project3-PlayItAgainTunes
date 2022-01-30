@@ -116,7 +116,7 @@ export const CartOrderSummary = () => {
 
         <OrderSummaryItem 
         label="Tax "
-        value={formatPrice(calculateTax())}
+        // value={formatPrice(calculateTax())}
         
         >
           {/* <Text textDecor="none">Taxes and shipping calculated at checkout</Text> */}
