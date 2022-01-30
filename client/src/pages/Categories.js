@@ -9,7 +9,6 @@ import { QUERY_CATEGORIES, QUERY_PRODUCTS } from "../utils/queries";
 import { useQuery } from "@apollo/client";
 import CategoryMenu from "../components/CategoryMenu";
 
-
 export default function Categories() {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
@@ -49,6 +48,7 @@ export default function Categories() {
 
   const categories = data?.categories || [];
   console.log(categories);
+
 
   return (
     <div id="Categories">
@@ -95,7 +95,6 @@ export default function Categories() {
                 {/* {console.log("categories ", category)}
                   {console.log("search ", searchResults)} */}
                 <Card
-                  key={product._id}
                   _id={product._id}
                   name={product.name}
                   price={product.price}
