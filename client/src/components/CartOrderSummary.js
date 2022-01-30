@@ -49,7 +49,7 @@ export const CartOrderSummary = () => {
     }
   }, [data]);
 
-  function calculateTotal() {
+  function calculateSubTotal() {
     let sum = 0;
     state.cart.forEach((item) => {
 
@@ -81,8 +81,23 @@ export const CartOrderSummary = () => {
          taxPrice = item.price * 0.0825;
       });
     return taxPrice;
+  }
 
-    
+
+  function calculateTotal() {
+    let sum = 0;
+
+    state.cart.forEach((item) => {
+    let taxPrice = 0;
+
+      taxPrice = item.price * 0.0825;
+
+      sum += item.price * item.purchaseQuantity + taxPrice;
+
+   });
+
+   return sum;
+
   }
 
   return (
@@ -92,11 +107,11 @@ export const CartOrderSummary = () => {
       <Stack spacing="6">
         <OrderSummaryItem
           label="Subtotal"
-          value={formatPrice(calculateTotal())}
+          value={formatPrice(calculateSubTotal())}
         />
         <OrderSummaryItem label="Shipping Cost">
           {/* <Text textDecor="none"></Text> */}
-          <div className="shipping"></div>
+          <div className="shipping">Free</div>
         </OrderSummaryItem>
 
         <OrderSummaryItem 
