@@ -106,6 +106,8 @@ export default function WithSubnavigation() {
           direction={"row"}
           spacing={6}
         >
+
+
           {Auth.loggedIn ? (
             <Button
               as={"a"}
@@ -116,9 +118,11 @@ export default function WithSubnavigation() {
             >
               Login
             </Button>
-          ) : (
-            ""
-          )}
+            ) 
+          
+          : ("")
+          
+          }
 
           <Button
             as={"a"}
@@ -133,7 +137,10 @@ export default function WithSubnavigation() {
             }}
           >
             Sign Up
+
           </Button>
+          
+          
         </Stack>
       </Flex>
 
