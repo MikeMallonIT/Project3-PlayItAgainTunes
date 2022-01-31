@@ -144,7 +144,7 @@ export const CartOrderSummary = () => {
         
         >
           {/* <Text textDecor="none">Taxes and shipping calculated at checkout</Text> */}
-          <div className="taxCost"></div>
+          <div className="taxCost">N/A</div>
           
           
         </OrderSummaryItem>

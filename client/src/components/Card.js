@@ -41,6 +41,7 @@ function Card(item) {
   const { cart } = state;
 
   const addToCart = () => {
+    window.alert(`${name} added to cart!`);
     const itemInCart = cart.find((cartItem) => cartItem._id === _id);
     if (itemInCart) {
       dispatch({
@@ -64,7 +65,9 @@ function Card(item) {
   console.log("name ", name, price, image);
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
-    <Flex alignItems="center" justifyContent="center">
+    <Flex alignItems="center" 
+    justifyContent="center"
+    >
       <Box
         bg={useColorModeValue("white", "gray.800")}
         maxW="sm"
