@@ -68,7 +68,6 @@ export const CartItem = (props) => {
   const dispatch = useDispatch();
 
   const removeFromCart = (item) => {
-    console.log("deleted", item);
     dispatch({
       type: REMOVE_FROM_CART,
       _id: item._id,
@@ -78,7 +77,6 @@ export const CartItem = (props) => {
 
   const handleQChange = (event) => {
     const value = event.target.value;
-    console.log(value);
     if (value === "0") {
       dispatch({
         type: REMOVE_FROM_CART,

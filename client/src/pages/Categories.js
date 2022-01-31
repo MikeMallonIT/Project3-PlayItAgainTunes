@@ -4,9 +4,8 @@ import { Center, Text, SimpleGrid } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { UPDATE_PRODUCTS } from "../utils/actions";
 import { idbPromise } from "../utils/helpers";
-import { QUERY_CATEGORIES, QUERY_PRODUCTS } from "../utils/queries";
+import { QUERY_PRODUCTS } from "../utils/queries";
 import { useQuery } from "@apollo/client";
-import CategoryMenu from "../components/CategoryMenu";
 
 export default function Categories() {
   const dispatch = useDispatch();
