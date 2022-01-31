@@ -43,4 +43,4 @@ Our application has been deployed using Heroku and can be viewed [here](https://
 - [Stack Overflow](https://stackoverflow.com/questions/46693430/what-are-salt-rounds-and-how-are-salts-stored-in-bcrypt)
 - [Tabnine](https://www.tabnine.com/code/javascript/functions/bcrypt/compare)
 - [mongoosejs](https://mongoosejs.com/docs/schematypes.html)
-- [React] (https://reactjs.org/docs/code-splitting.html)
+- [React](https://reactjs.org/docs/code-splitting.html)
