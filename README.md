@@ -39,3 +39,6 @@ Our application has been deployed using Heroku and can be viewed [here](https://
 - [Tabnine](https://www.tabnine.com/code/javascript/functions/bcrypt/compare)
 - [mongoosejs](https://mongoosejs.com/docs/schematypes.html)
 - [React](https://reactjs.org/docs/code-splitting.html)
+- [Theo Moreland - TA ](https://github.com/theodoremoreland)
+- [Jack Linhart - TA](https://github.com/iatenine)
+- [Frantz Felix - TA](https://github.com/FrantzCFelix)
