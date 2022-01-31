@@ -5,6 +5,7 @@ import {
   HStack,
   Link,
   Stack,
+  Text,
   useColorModeValue as mode,
 } from "@chakra-ui/react";
 import React from "react";
@@ -53,9 +54,12 @@ export const Cart = () => {
           }}
           flex="2"
         >
-          <Heading fontSize="2xl" fontWeight="extrabold">
-            Shopping Cart
-          </Heading>
+          <Stack spacing="1">
+            <Heading fontSize="2xl" fontWeight="extrabold">
+              Shopping Cart
+            </Heading>
+            <Text>Info about our rates are below</Text>
+          </Stack>
           {state.cart.length ? (
             <Stack spacing="6">
               {state.cart.map((product) => (
@@ -77,6 +81,15 @@ export const Cart = () => {
               </Link>{" "}
             </Stack>
           )}
+          <Stack spacing="2">
+            <Text>Instrument Rates: Monthly</Text>
+            <Text>
+              Service Rates: Vary by package.{" "}
+              <Link href="/services" textDecoration="underline">
+                More info
+              </Link>
+            </Text>
+          </Stack>
         </Stack>
 
         <Flex direction="column" align="center" flex="1">
