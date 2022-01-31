@@ -5,61 +5,55 @@ import {
   Select,
   useColorModeValue,
   useColorModeValue as mode,
-  Heading,
+  Text,
   FormLabel,
 } from "@chakra-ui/react";
 import * as React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { REMOVE_FROM_CART } from "../utils/actions";
+import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from "../utils/actions";
 import { idbPromise } from "../utils/helpers";
 import { CartProductMeta } from "./CartProductMeta";
 
 const QuantitySelect = (props) => {
   return (
-<Flex 
-
-direction={{
-  base: "column",
-  md: "row",
-}}
-justify="space-between"
-align="center"
-
->
-  <FormLabel
-    fontSize={{ base: 'sm', md: 'md' }}
-    htmlFor={props.id}
-    mb="0"
-    align={'center'}
-    padding-top={'50px'}
-    color={mode('gray.600', 'gray.400')}
-
-   >
-     
-     Month(s)
-   
-   </FormLabel>
-
-
-    <Select
-      maxW="64px"
-      aria-label="Select quantity"
-      focusBorderColor={useColorModeValue("blue.500", "blue.200")}
-      {...props}
+    <Flex
+      direction={{
+        base: "column",
+        md: "row",
+      }}
+      justify="space-between"
+      align="center"
     >
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
-      <option value="10">10</option>
-      <option value="11">11</option>
-      <option value="12">12</option>
-    </Select>
+      <FormLabel
+        fontSize={{ base: "sm", md: "md" }}
+        htmlFor={props.id}
+        mb="0"
+        align={"center"}
+        padding-top={"50px"}
+        color={mode("gray.600", "gray.400")}
+      >
+        Month(s)
+      </FormLabel>
+
+      <Select
+        maxW="64px"
+        aria-label="Select quantity"
+        focusBorderColor={useColorModeValue("blue.500", "blue.200")}
+        {...props}
+      >
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+      </Select>
     </Flex>
   );
 };
@@ -82,8 +76,26 @@ export const CartItem = (props) => {
     idbPromise("cart", "delete", { ...item });
   };
 
-  const handleQChange = () => {
-    console.log("changed quantity");
+  const handleQChange = (event) => {
+    const value = event.target.value;
+    console.log(value);
+    if (value === "0") {
+      dispatch({
+        type: REMOVE_FROM_CART,
+        _id: _id,
+      });
+      idbPromise("cart", "delete", { props });
+    } else {
+      dispatch({
+        type: UPDATE_CART_QUANTITY,
+        _id: _id,
+        purchaseQuantity: parseInt(value),
+      });
+      idbPromise("cart", "put", {
+        ...props,
+        purchaseQuantity: parseInt(value),
+      });
+    }
   };
   return (
     <Flex
@@ -107,7 +119,9 @@ export const CartItem = (props) => {
         }}
       >
         <QuantitySelect value={quantity} onChange={handleQChange} />
-      
+
+        <Text key={_id}>Rate: ${price}.00</Text>
+
         <CloseButton
           aria-label={`Delete ${name} from cart`}
           onClick={() => removeFromCart(props)}
@@ -133,7 +147,6 @@ export const CartItem = (props) => {
           Delete
         </Link>
         <QuantitySelect value={quantity} onChange={handleQChange} />
-        
       </Flex>
     </Flex>
   );
