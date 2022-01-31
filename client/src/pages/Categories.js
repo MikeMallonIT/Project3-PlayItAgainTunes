@@ -52,14 +52,20 @@ export default function Categories() {
 
   return (
     <div id="Categories">
-      <div className="leftComponent">
+      
+      {/* UNCOMMENT BELOW FOR categories BUTTONS*/}
+      
+      {/* <div className="leftComponent">
 
         <Stack spacing={6}>
           <CategoryMenu></CategoryMenu>
         </Stack>
 
-      </div>
-      <div className="rightComponent">
+      </div> */}
+
+
+
+      <div className="centerComponent">
         <div>
           <Text
             fontWeight={800}
