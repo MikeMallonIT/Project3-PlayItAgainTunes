@@ -65,7 +65,9 @@ function Card(item) {
   console.log("name ", name, price, image);
   const { isOpen, onOpen, onClose } = useDisclosure();
   return (
-    <Flex alignItems="center" justifyContent="center">
+    <Flex alignItems="center" 
+    justifyContent="center"
+    >
       <Box
         bg={useColorModeValue("white", "gray.800")}
         maxW="sm"
