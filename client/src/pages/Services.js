@@ -12,7 +12,7 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { FaCheckCircle } from "react-icons/fa";
-import AddService from "../components/Service";
+//import AddService from "../components/Service";
 
 function PriceWrapper({ children }) {
   return (
@@ -84,7 +84,7 @@ export default function ThreeTierPricing() {
               </ListItem>
             </List>
             <Box w="80%" pt={7}>
-              <Button w="full" colorScheme="cyan" variant="outline" onClick={AddService()}>
+              <Button w="full" colorScheme="cyan" variant="outline">
                 Add to Cart
               </Button>
             </Box>
