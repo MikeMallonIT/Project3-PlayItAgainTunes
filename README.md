@@ -14,8 +14,6 @@ This assignment served as out final project to demonstrate what we learned durin
 <br>
 
 ### Who is The Wholesome 4?
-
-<br>
 The Wholesome 4 were inspired to build Play It Again Tunes by their collective love for music and Charlie’s hands-on experience as a high school educator.
 <br>
 Miranda and Mike both work in the insurance industry but are eager to work more closely with software development and find a career path that includes writing code. Alice is a receptions and an aspiring full stack software developer. She hopes to seek employment as a junior developer after Coding Bootcamp.
