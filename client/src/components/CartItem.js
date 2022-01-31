@@ -11,7 +11,6 @@ import * as React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { REMOVE_FROM_CART } from "../utils/actions";
 import { idbPromise } from "../utils/helpers";
-import { PriceTag } from "./PriceTag";
 import { CartProductMeta } from "./CartProductMeta";
 
 const QuantitySelect = (props) => {
@@ -101,7 +100,7 @@ export const CartItem = (props) => {
         }}
       >
         <QuantitySelect value={quantity} onChange={handleQChange} />
-        <PriceTag price={price} />
+      
         <CloseButton
           aria-label={`Delete ${name} from cart`}
           onClick={() => removeFromCart(props)}
@@ -127,7 +126,7 @@ export const CartItem = (props) => {
           Delete
         </Link>
         <QuantitySelect value={quantity} onChange={handleQChange} />
-        <PriceTag price={price} />
+        
       </Flex>
     </Flex>
   );

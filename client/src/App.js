@@ -18,9 +18,10 @@ import "./assets/scss/global.scss";
 import NavBar from "./components/Navbar";
 // import Header from "./components/Header";
 import Footer from "./components/Footer";
-import Checkout from "./components/Checkout";
+
 import CategoryMenu from "./components/CategoryMenu";
 import ProductList from "./components/ProductList";
+import PriceTag from "./components/PriceTag";
 // import { OrderSummary } from "./components/OrderSummary";
 // import { CartOrderSummary } from "./components/CartOrderSummary";
 // import { PaymentInformation } from "./components/PaymentInformation";
@@ -31,7 +32,6 @@ import ProductList from "./components/ProductList";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-// import Detail from "./pages/Detail";
 import Categories from "./pages/Categories";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
@@ -71,9 +71,7 @@ function App() {
               <Route exact path="/" element={<Home />} />
               <Route exact path="/login" element={<Login />} />
               <Route exact path="/signup" element={<Signup />} />
-              {/*<Route exact path="/detail" element={<Detail />} /> */}
               <Route exact path="/services" element={<Services />} />
-              <Route exact path="/checkout" element={<Checkout />} />
               <Route exact path="/categories" element={<Categories />} />
               <Route exact path="/about" element={<About />} />
               <Route exact path="/contact" element={<Contact />} />

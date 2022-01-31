@@ -46,8 +46,8 @@ export default function Categories() {
 
   const [searchResults, setSearchResults] = useState();
 
-  const categories = data?.categories || [];
-  console.log(categories);
+  // const categories = data?.categories || [];
+  // console.log(categories);
 
 
   return (
