@@ -14,8 +14,6 @@ This assignment served as out final project to demonstrate what we learned durin
 <br>
 
 ### Who is The Wholesome 4?
-
-<br>
 The Wholesome 4 were inspired to build Play It Again Tunes by their collective love for music and Charlie’s hands-on experience as a high school educator.
 <br>
 Miranda and Mike both work in the insurance industry but are eager to work more closely with software development and find a career path that includes writing code. Alice is a receptions and an aspiring full stack software developer. She hopes to seek employment as a junior developer after Coding Bootcamp.
@@ -45,4 +43,4 @@ Our application has been deployed using Heroku and can be viewed [here](https://
 - [Stack Overflow](https://stackoverflow.com/questions/46693430/what-are-salt-rounds-and-how-are-salts-stored-in-bcrypt)
 - [Tabnine](https://www.tabnine.com/code/javascript/functions/bcrypt/compare)
 - [mongoosejs](https://mongoosejs.com/docs/schematypes.html)
-- [React] (https://reactjs.org/docs/code-splitting.html)
+- [React](https://reactjs.org/docs/code-splitting.html)

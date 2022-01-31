@@ -34,21 +34,21 @@ const NAV_ITEMS = [
     href: "/home",
   },
   {
-    label: "Categories",
+    label: "Instruments",
     href: "/categories",
   },
   {
     label: "Services",
     href: "/services",
   },
-  {
-    label: "Cart",
-    href: "/cart",
-  },
-  {
-    label: "Order History",
-    href: "/orderhistory",
-  },
+//  {
+//    label: "Cart",
+//    href: "/cart",
+//  },
+//  {
+//    label: "Order History",
+//    href: "/orderhistory",
+//  },
 ];
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
@@ -115,6 +115,27 @@ export default function WithSubnavigation() {
 
           {Auth.loggedIn() ? (
             <>
+
+              <Button
+                as={"a"}
+                fontSize={"sm"}
+                fontWeight={400}
+                variant={"link"}
+                href={"/cart"}
+              >
+                Cart
+              </Button>
+
+              <Button
+                as={"a"}
+                fontSize={"sm"}
+                fontWeight={400}
+                variant={"link"}
+                href={"/orderhistory"}
+              >
+                Order History
+              </Button>
+
               <Button
                 as={"a"}
                 fontSize={"sm"}
