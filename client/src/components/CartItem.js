@@ -5,7 +5,6 @@ import {
   Select,
   useColorModeValue,
   useColorModeValue as mode,
-  Heading,
   FormLabel,
 } from "@chakra-ui/react";
 import * as React from "react";
@@ -17,50 +16,44 @@ import { CartProductMeta } from "./CartProductMeta";
 
 const QuantitySelect = (props) => {
   return (
-<Flex 
-
-direction={{
-  base: "column",
-  md: "row",
-}}
-justify="space-between"
-align="center"
-
->
-  <FormLabel
-    fontSize={{ base: 'sm', md: 'md' }}
-    htmlFor={props.id}
-    mb="0"
-    align={'center'}
-    padding-top={'50px'}
-    color={mode('gray.600', 'gray.400')}
-
-   >
-     
-     Month(s)
-   
-   </FormLabel>
-
-
-    <Select
-      maxW="64px"
-      aria-label="Select quantity"
-      focusBorderColor={useColorModeValue("blue.500", "blue.200")}
-      {...props}
+    <Flex
+      direction={{
+        base: "column",
+        md: "row",
+      }}
+      justify="space-between"
+      align="center"
     >
-      <option value="1">1</option>
-      <option value="2">2</option>
-      <option value="3">3</option>
-      <option value="4">4</option>
-      <option value="5">5</option>
-      <option value="6">6</option>
-      <option value="7">7</option>
-      <option value="8">8</option>
-      <option value="9">9</option>
-      <option value="10">10</option>
-      <option value="11">11</option>
-      <option value="12">12</option>
-    </Select>
+      <FormLabel
+        fontSize={{ base: "sm", md: "md" }}
+        htmlFor={props.id}
+        mb="0"
+        align={"center"}
+        padding-top={"50px"}
+        color={mode("gray.600", "gray.400")}
+      >
+        Month(s)
+      </FormLabel>
+
+      <Select
+        maxW="64px"
+        aria-label="Select quantity"
+        focusBorderColor={useColorModeValue("blue.500", "blue.200")}
+        {...props}
+      >
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+      </Select>
     </Flex>
   );
 };
