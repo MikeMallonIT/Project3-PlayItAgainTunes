@@ -1,5 +1,5 @@
 # Project3 - Final Bootcamp Assignment: Play It Again Tunes
-### Alice Phan, Charlie Hernandez, Miranda Zermeno, Michael Mallon ![Team Logo](https://raw.githubusercontent.com/MikeMallonIT/Project3-PlayItAgainTunes/main/client/public/favi/favicon-32x32.png)
+### ![Team Logo](https://raw.githubusercontent.com/MikeMallonIT/Project3-PlayItAgainTunes/main/client/public/favi/favicon-32x32.png) Alice Phan, Charlie Hernandez, Miranda Zermeno, Michael Mallon
 <br>
 
 ## What we did: 
