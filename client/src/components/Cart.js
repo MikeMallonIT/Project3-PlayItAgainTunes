@@ -7,27 +7,13 @@ import {
   Stack,
   useColorModeValue as mode,
 } from "@chakra-ui/react";
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { ADD_MULTIPLE_TO_CART } from "../utils/actions";
-import { idbPromise } from "../utils/helpers";
+import React from "react";
+import { useSelector } from "react-redux";
 import { CartItem } from "./CartItem";
 import { CartOrderSummary } from "./CartOrderSummary";
 
 export const Cart = () => {
-  const dispatch = useDispatch();
   const state = useSelector((state) => state);
-
-  useEffect(() => {
-    async function getcart() {
-      const cart = await idbPromise("cart", "get");
-      dispatch({ type: ADD_MULTIPLE_TO_CART, products: [...cart] });
-    }
-
-    if (!state.cart.length) {
-      getcart();
-    }
-  }, [state.cart.length, dispatch]);
 
   return (
     <Box
