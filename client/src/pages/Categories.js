@@ -51,7 +51,7 @@ export default function Categories() {
 
 
   return (
-    <div id="Categories">
+    <div id="Categories" >
       
       {/* UNCOMMENT BELOW FOR categories BUTTONS*/}
       
