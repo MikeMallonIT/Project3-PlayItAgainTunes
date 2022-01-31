@@ -5,7 +5,7 @@ import {
   Select,
   useColorModeValue,
   useColorModeValue as mode,
-  Heading,
+  Text,
   FormLabel,
 } from "@chakra-ui/react";
 import * as React from "react";
@@ -119,6 +119,8 @@ export const CartItem = (props) => {
         }}
       >
         <QuantitySelect value={quantity} onChange={handleQChange} />
+
+        <Text key={_id}>Rate: ${price}.00</Text>
 
         <CloseButton
           aria-label={`Delete ${name} from cart`}
