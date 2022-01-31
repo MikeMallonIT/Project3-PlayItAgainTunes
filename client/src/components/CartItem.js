@@ -10,7 +10,7 @@ import {
 } from "@chakra-ui/react";
 import * as React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { REMOVE_FROM_CART } from "../utils/actions";
+import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from "../utils/actions";
 import { idbPromise } from "../utils/helpers";
 import { CartProductMeta } from "./CartProductMeta";
 
@@ -79,6 +79,23 @@ export const CartItem = (props) => {
   const handleQChange = (event) => {
     const value = event.target.value;
     console.log(value);
+    if (value === "0") {
+      dispatch({
+        type: REMOVE_FROM_CART,
+        _id: _id,
+      });
+      idbPromise("cart", "delete", { props });
+    } else {
+      dispatch({
+        type: UPDATE_CART_QUANTITY,
+        _id: _id,
+        purchaseQuantity: parseInt(value),
+      });
+      idbPromise("cart", "put", {
+        ...props,
+        purchaseQuantity: parseInt(value),
+      });
+    }
   };
   return (
     <Flex
