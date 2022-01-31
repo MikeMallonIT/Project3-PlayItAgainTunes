@@ -39,6 +39,7 @@ import Services from "./pages/Services";
 import Cart from "./components/Cart";
 import { Suspense } from "react";
 import OrderHistory from "./pages/OrderHistory";
+import Success from "./pages/Success";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -79,6 +80,7 @@ function App() {
               <Route exact path="/cart" element={<Cart />} />
               <Route exact path="/categorymenu" element={<CategoryMenu />} />
               <Route exact path="/orderhistory" element={<OrderHistory />} />
+              <Route exact path="/success" element={<Success />} />
               {/* <Route exact path="/productlist" element={<ProductList />} />; ; */}
             </Routes>
             <Footer />
