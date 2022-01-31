@@ -25,8 +25,6 @@ Download all associated files in this repository. Install mongo DB then Open you
 ### Deployed:
 Our application has been deployed using Heroku and can be viewed [here](https://project3-playitagaintunes.herokuapp.com/). Our deployed version used MongoDB Atlas and requires no additional configuration from the end user.
 
-<br>
-
 ![Working Screenshot](https://raw.githubusercontent.com/MikeMallonIT/Project3-PlayItAgainTunes/main/client/public/images/appScreenShot.png)
 
 
