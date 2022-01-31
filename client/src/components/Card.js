@@ -41,6 +41,7 @@ function Card(item) {
   const { cart } = state;
 
   const addToCart = () => {
+    window.alert(`${name} added to cart!`);
     const itemInCart = cart.find((cartItem) => cartItem._id === _id);
     if (itemInCart) {
       dispatch({
