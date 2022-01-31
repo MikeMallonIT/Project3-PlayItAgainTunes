@@ -67,7 +67,11 @@ import {
             align={{ md: 'center' }}>
             <Text>© 2022 The Wholesome 4. All rights reserved</Text>
             <Stack direction={'row'} spacing={6}>
+<<<<<<< HEAD
               <Button label={'Twitter'} href={'#https://twitter.com/search?q=%23BingBong&src=typeahead_click&f=top'}>
+=======
+              <Button as="a" label={'Twitter'} href={'https://twitter.com/search?q=%23BingBong&src=typeahead_click&f=top'} target="_blank" rel="noopener noreferrer">
+>>>>>>> 843e3bf95c462617551a7474c400e0823c2c05fa
                 <FaTwitter />
               </Button>
               <Link href="https://github.com/MikeMallonIT/Project3-PlayItAgainTunes">
