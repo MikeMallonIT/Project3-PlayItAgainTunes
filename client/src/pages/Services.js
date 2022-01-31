@@ -12,6 +12,7 @@ import {
   Button,
 } from "@chakra-ui/react";
 import { FaCheckCircle } from "react-icons/fa";
+//import AddService from "../components/Service";
 
 function PriceWrapper({ children }) {
   return (
