@@ -15,7 +15,6 @@ This assignment served as out final project to demonstrate what we learned durin
 
 ### Who is The Wholesome 4?
 
-Alice, Charlie, Miranda and Mike worked together to build a website where students and educators can rent musical instruments and equipment.
 <br>
 The Wholesome 4 were inspired to build Play It Again Tunes by their collective love for music and Charlie’s hands-on experience as a high school educator.
 <br>
