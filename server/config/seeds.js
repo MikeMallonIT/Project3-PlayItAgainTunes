@@ -1,5 +1,5 @@
 const db = require("./connection");
-const { Category, Product, User } = require("../models");
+const { Category, Product, Order, User } = require("../models");
 
 db.once("open", async () => {
   
@@ -8,7 +8,7 @@ db.once("open", async () => {
   
   await Product.deleteMany();
 
-  const instruments = await Product.insertMany([
+  const products = await Product.insertMany([
     {
       name: "Acousitc Guitar",
       brand: "Yamaha",
@@ -150,25 +150,30 @@ db.once("open", async () => {
   await User.deleteMany();
 
   await Category.insertMany([
-    { name: "Guitar", products: [instruments[0]._id, instruments[1]._id, instruments[2]._id] },
-    { name: "Brass", products: [instruments[3]._id, instruments[4]._id, instruments[5]._id] },
-    { name: "Woodwind", products: [instruments[6]._id, instruments[7]._id, instruments[8]._id] },
-    { name: "Percussion", products: [instruments[9]._id, instruments[10]._id, instruments[11]._id] },
+    { name: "Guitar", products: [products[0], products[1], products[2]] },
+    { name: "Brass", products: [products[3], products[4], products[5]] },
+    { name: "Woodwind", products: [products[6], products[7], products[8]] },
+    { name: "Percussion", products: [products[9], products[10], products[11]] },
     { name: "Services"},
   ]);
 
 
+
+ 
+  
   await User.create({
     firstName: "Joe",
     lastName: "Test",
     email: "test@email.com",
     password: "password12345",
-    order: [
-      {
-        instruments: [instruments[0]._id, instruments[0]._id, instruments[1]._id]
+    orders: {
+      products: [products[0], products[1], products[2]]
+    }
+      
+       
 
-      }
-    ]
+      
+    
   });
 
   process.exit();
