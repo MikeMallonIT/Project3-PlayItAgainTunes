@@ -3,13 +3,11 @@
 
 ## What we did: 
 Alice, Charlie, Michael and Miranda worked with new technologies when developing Play It Again Tunes including but not limited to: Node.js, Express.js, MongoDB, GraphQL, Chakra-UI, Heroku, Redux, Stripe, S-CSS, HTML, CSS and JavaScript. We built a Full-Stack E-Commerce website with a student target-audience in mind. Our customers can use Play It Again Tunes to order musical instruments for a desired number of months. Once payment is received through our Stripe payment portal, instruments will be shipped to the customer's door. We also offer a variety of service and protection plans for a flat rate.
-
 <br>
 
 ### Motivation:
 
 This assignment served as out final project to demonstrate what we learned during the past 6 months of SMU Full Stack Coding Bootcamp. Play It Again Tunes was developed with end-users in mind. We found that e-commerce website used for renting music equipment sometimes lack the soft-styling that we went for. We tried to keep Play It Again Tunes as user-friendly as possible while also retaining a clean, distraction-free front end.
-
 <br>
 
 ### Who is The Wholesome 4?
