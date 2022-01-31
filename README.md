@@ -22,7 +22,7 @@ The Wholesome 4 currently reside in the Dallas-Fort Worth Metroplex but grew up 
 ## Installation:
 Download all associated files in this repository. Install mongo DB then Open your CLI. CD to the root directory where the application has been cloned. Run commands `npm install` then `npm run develop` which will start the application. Use the localhost address listed in the CLI to access the application in your web browser.
 
-### Deployed
+### Deployed:
 Our application has been deployed using Heroku and can be viewed [here](https://project3-playitagaintunes.herokuapp.com/). Our deployed version used MongoDB Atlas and requires no additional configuration from the end user.
 
 <br>
