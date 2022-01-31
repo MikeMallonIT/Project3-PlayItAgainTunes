@@ -27,6 +27,7 @@ import logo from "../assets/images/logo.png";
 import logoWhite from "../assets/images/logo 04 white.png";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 
+
 const NAV_ITEMS = [
   {
     label: "Home",
@@ -112,19 +113,32 @@ export default function WithSubnavigation() {
         >
 
 
-          {Auth.loggedIn ? (
+          {Auth.loggedIn() ? (
             <>
               <Button
                 as={"a"}
                 fontSize={"sm"}
                 fontWeight={400}
                 variant={"link"}
-                href={"/login"}
+                onClick={() => Auth.logout()}
               >
-                Login
+                Logout
               </Button>
 
-              <Button
+            </>
+          ) : (
+            <>
+            <Button
+              as={"a"}
+              fontSize={"sm"}
+              fontWeight={400}
+              variant={"link"}
+              href={"/login"}
+              
+            >
+              Login
+            </Button>
+            <Button
                 as={"a"}
                 display={{ base: "none", md: "inline-flex" }}
                 fontSize={"sm"}
@@ -139,16 +153,7 @@ export default function WithSubnavigation() {
                 Sign Up
               </Button>
             </>
-          ) : (
-            <Button
-              as={"a"}
-              fontSize={"sm"}
-              fontWeight={400}
-              variant={"link"}
-              onClick={() => Auth.logout()}
-            >
-              Logout
-            </Button>
+            
           )}
         </Stack>
       </Flex>

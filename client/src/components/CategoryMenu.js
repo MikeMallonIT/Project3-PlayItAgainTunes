@@ -37,12 +37,14 @@ function CategoryMenu() {
                 });
             });
         }
-    }, [categoryData, loading, dispatch]);
+    }, [categoryData, loading,dispatch]);
 
     const handleClick = (item) => {
+       console.log(categoryData)
         dispatch({
+        
             type: QUERY_CATEGORIES ,
-           categories: item,
+            categories: item,
         });
     };
 
@@ -69,7 +71,8 @@ function CategoryMenu() {
                         base: 'column', md: 'row'
                     }}
                     key={item._id}
-                    onClick={() => {
+                    onClick={(e) => {
+                        console.log(item._id)
                         handleClick(item._id);
                     }}
                 >
