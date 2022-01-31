@@ -9,7 +9,6 @@ import {
   List,
   ListItem,
   ListIcon,
-  Button,
 } from "@chakra-ui/react";
 import { FaCheckCircle } from "react-icons/fa";
 //import AddService from "../components/Service";

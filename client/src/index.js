@@ -5,15 +5,12 @@ import App from "./App";
 import { ChakraProvider, ColorModeScript } from "@chakra-ui/react";
 //import * as serviceWorker from './serviceWorker';
 
-//import { ApolloProvider, ApolloClient } from "@apollo/client";
-// import { BrowserRouter } from 'react-router-dom';
-
 const rootElement = document.getElementById("root");
 ReactDOM.render(
   <React.StrictMode>
     <ChakraProvider>
-        <ColorModeScript initialColorMode="light"></ColorModeScript>
-        <App />
+      <ColorModeScript initialColorMode="light"></ColorModeScript>
+      <App />
     </ChakraProvider>
   </React.StrictMode>,
   rootElement

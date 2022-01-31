@@ -33,8 +33,6 @@ export default function SignupCard() {
   });
   const [addUser, { data, error }] = useMutation(ADD_USER);
 
-  console.log("formState1", formState);
-
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormState({
@@ -56,7 +54,6 @@ export default function SignupCard() {
     const token = mutationResponse.data.addUser.token;
     Auth.login(token);
   };
-  
 
   return (
     <Flex
@@ -152,7 +149,10 @@ export default function SignupCard() {
               </Stack>
               <Stack pt={6}>
                 <Text align={"center"}>
-                  Already a user? <Link color={"blue.400"} href={"./login"}>Login</Link>
+                  Already a user?{" "}
+                  <Link color={"blue.400"} href={"./login"}>
+                    Login
+                  </Link>
                 </Text>
               </Stack>
             </form>
