@@ -84,9 +84,9 @@ export default function ThreeTierPricing() {
               </ListItem>
             </List>
             <Box w="80%" pt={7}>
-              <Button w="full" colorScheme="cyan" variant="outline">
+              {/* <Button w="full" colorScheme="cyan" variant="outline">
                 Add to Cart
-              </Button>
+              </Button> */}
             </Box>
           </VStack>
         </PriceWrapper>
@@ -156,9 +156,9 @@ export default function ThreeTierPricing() {
                 </ListItem>
               </List>
               <Box w="80%" pt={7}>
-                <Button w="full" colorScheme="cyan">
+                {/* <Button w="full" colorScheme="cyan">
                   Add to Cart
-                </Button>
+                </Button> */}
               </Box>
             </VStack>
           </Box>
@@ -208,9 +208,9 @@ export default function ThreeTierPricing() {
               </ListItem>
             </List>
             <Box w="80%" pt={7}>
-              <Button w="full" colorScheme="cyan" variant="outline">
+              {/* <Button w="full" colorScheme="cyan" variant="outline">
                 Add to Cart
-              </Button>
+              </Button> */}
             </Box>
           </VStack>
         </PriceWrapper>
