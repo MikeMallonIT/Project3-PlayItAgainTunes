@@ -35,12 +35,12 @@ The Wholesome 4 currently reside in the Dallas-Fort Worth Metroplex but grew up 
 Download all associated files in this repository. Install mongo DB then Open your CLI. CD to the root directory where the application has been cloned. Run commands `npm install` then `npm run develop` which will start the application. Use the localhost address listed in the CLI to access the application in your web browser.
 
 ## Links:
-* ![GitHub repository](https://github.com/MikeMallonIT/Project3-PlayItAgainTunes)
+* [GitHub repository](https://github.com/MikeMallonIT/Project3-PlayItAgainTunes)
 
 * Heroku deployed URL:
 Our application has been deployed using Heroku and can be viewed [here](https://project3-playitagaintunes.herokuapp.com/). Our deployed version used MongoDB Atlas and requires no additional configuration from the end user.
 
-* ![Presentation Slides](https://docs.google.com/presentation/d/1qH1Zh_6IZekpy3RfXYY5FiylE2AYZTVLe7nTu1kz0RI/edit?usp=sharing)
+* [Presentation Slides](https://docs.google.com/presentation/d/1qH1Zh_6IZekpy3RfXYY5FiylE2AYZTVLe7nTu1kz0RI/edit?usp=sharing)
 
 ## Screenshot
 ![Working Screenshot](https://raw.githubusercontent.com/MikeMallonIT/Project3-PlayItAgainTunes/main/client/public/images/appScreenShot.png)
