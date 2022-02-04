@@ -8,7 +8,6 @@ import {
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-import { ChakraProvider, useColorMode } from "@chakra-ui/react";
 import "./index.css";
 import { Provider } from "react-redux";
 import store from "./utils/store.js";
@@ -20,13 +19,6 @@ import NavBar from "./components/Navbar";
 import Footer from "./components/Footer";
 
 import CategoryMenu from "./components/CategoryMenu";
-import ProductList from "./components/ProductList";
-import PriceTag from "./components/PriceTag";
-// import { OrderSummary } from "./components/OrderSummary";
-// import { CartOrderSummary } from "./components/CartOrderSummary";
-// import { PaymentInformation } from "./components/PaymentInformation";
-// import { ShippingInformation } from "./components/ShippingInformation";
-// import { ShippingMethod } from "./components/ShippingMethod";
 
 //Pages
 import Home from "./pages/Home";
@@ -39,6 +31,7 @@ import Services from "./pages/Services";
 import Cart from "./components/Cart";
 import { Suspense } from "react";
 import OrderHistory from "./pages/OrderHistory";
+import Success from "./pages/Success";
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -79,7 +72,7 @@ function App() {
               <Route exact path="/cart" element={<Cart />} />
               <Route exact path="/categorymenu" element={<CategoryMenu />} />
               <Route exact path="/orderhistory" element={<OrderHistory />} />
-              {/* <Route exact path="/productlist" element={<ProductList />} />; ; */}
+              <Route exact path="/success" element={<Success />} />
             </Routes>
             <Footer />
           </Suspense>

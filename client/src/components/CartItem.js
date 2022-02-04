@@ -5,11 +5,15 @@ import {
   Select,
   useColorModeValue,
   useColorModeValue as mode,
+<<<<<<< HEAD
+=======
+  Text,
+>>>>>>> main
   FormLabel,
 } from "@chakra-ui/react";
 import * as React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { REMOVE_FROM_CART } from "../utils/actions";
+import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from "../utils/actions";
 import { idbPromise } from "../utils/helpers";
 import { CartProductMeta } from "./CartProductMeta";
 
@@ -67,7 +71,6 @@ export const CartItem = (props) => {
   const dispatch = useDispatch();
 
   const removeFromCart = (item) => {
-    console.log("deleted", item);
     dispatch({
       type: REMOVE_FROM_CART,
       _id: item._id,
@@ -75,8 +78,25 @@ export const CartItem = (props) => {
     idbPromise("cart", "delete", { ...item });
   };
 
-  const handleQChange = () => {
-    console.log("changed quantity");
+  const handleQChange = (event) => {
+    const value = event.target.value;
+    if (value === "0") {
+      dispatch({
+        type: REMOVE_FROM_CART,
+        _id: _id,
+      });
+      idbPromise("cart", "delete", { props });
+    } else {
+      dispatch({
+        type: UPDATE_CART_QUANTITY,
+        _id: _id,
+        purchaseQuantity: parseInt(value),
+      });
+      idbPromise("cart", "put", {
+        ...props,
+        purchaseQuantity: parseInt(value),
+      });
+    }
   };
   return (
     <Flex
@@ -100,7 +120,9 @@ export const CartItem = (props) => {
         }}
       >
         <QuantitySelect value={quantity} onChange={handleQChange} />
-      
+
+        <Text key={_id}>Rate: ${price}.00</Text>
+
         <CloseButton
           aria-label={`Delete ${name} from cart`}
           onClick={() => removeFromCart(props)}
@@ -126,7 +148,6 @@ export const CartItem = (props) => {
           Delete
         </Link>
         <QuantitySelect value={quantity} onChange={handleQChange} />
-        
       </Flex>
     </Flex>
   );

@@ -27,36 +27,31 @@ import logo from "../assets/images/logo.png";
 import logoWhite from "../assets/images/logo 04 white.png";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
 
-
 const NAV_ITEMS = [
   {
     label: "Home",
     href: "/home",
   },
   {
-    label: "Categories",
+    label: "Instruments",
     href: "/categories",
   },
   {
     label: "Services",
     href: "/services",
   },
-  {
-    label: "Cart",
-    href: "/cart",
-  },
-  {
-    label: "Order History",
-    href: "/orderhistory",
-  },
+  //  {
+  //    label: "Cart",
+  //    href: "/cart",
+  //  },
+  //  {
+  //    label: "Order History",
+  //    href: "/orderhistory",
+  //  },
 ];
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
   const { colorMode, toggleColorMode } = useColorMode();
-  console.log(
-    "🚀 ~ file: Navbar.js ~ line 51 ~ WithSubnavigation ~ colorMode",
-    colorMode
-  );
 
   return (
     <Box>
@@ -111,10 +106,28 @@ export default function WithSubnavigation() {
           direction={"row"}
           spacing={6}
         >
-
-
           {Auth.loggedIn() ? (
             <>
+              <Button
+                as={"a"}
+                fontSize={"sm"}
+                fontWeight={400}
+                variant={"link"}
+                href={"/cart"}
+              >
+                Cart
+              </Button>
+
+              <Button
+                as={"a"}
+                fontSize={"sm"}
+                fontWeight={400}
+                variant={"link"}
+                href={"/orderhistory"}
+              >
+                Order History
+              </Button>
+
               <Button
                 as={"a"}
                 fontSize={"sm"}
@@ -124,21 +137,19 @@ export default function WithSubnavigation() {
               >
                 Logout
               </Button>
-
             </>
           ) : (
             <>
-            <Button
-              as={"a"}
-              fontSize={"sm"}
-              fontWeight={400}
-              variant={"link"}
-              href={"/login"}
-              
-            >
-              Login
-            </Button>
-            <Button
+              <Button
+                as={"a"}
+                fontSize={"sm"}
+                fontWeight={400}
+                variant={"link"}
+                href={"/login"}
+              >
+                Login
+              </Button>
+              <Button
                 as={"a"}
                 display={{ base: "none", md: "inline-flex" }}
                 fontSize={"sm"}
@@ -153,7 +164,6 @@ export default function WithSubnavigation() {
                 Sign Up
               </Button>
             </>
-            
           )}
         </Stack>
       </Flex>

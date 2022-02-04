@@ -1,13 +1,11 @@
 import React, { useState, useEffect } from "react";
-import {  Stack } from "@chakra-ui/react";
 import Card from "../components/Card";
-import { Text } from "@chakra-ui/react";
+import { Center, Text, SimpleGrid } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { UPDATE_PRODUCTS } from "../utils/actions";
 import { idbPromise } from "../utils/helpers";
-import { QUERY_CATEGORIES, QUERY_PRODUCTS } from "../utils/queries";
+import { QUERY_PRODUCTS } from "../utils/queries";
 import { useQuery } from "@apollo/client";
-import CategoryMenu from "../components/CategoryMenu";
 
 export default function Categories() {
   const dispatch = useDispatch();
@@ -49,33 +47,36 @@ export default function Categories() {
   // const categories = data?.categories || [];
   // console.log(categories);
 
-
   return (
-    <div id="Categories">
-      <div className="leftComponent">
+    <Center>
+      <div id="Categories">
+        {/* UNCOMMENT BELOW FOR categories BUTTONS*/}
+
+        {/* <div className="leftComponent">
 
         <Stack spacing={6}>
           <CategoryMenu></CategoryMenu>
         </Stack>
 
-      </div>
-      <div className="rightComponent">
-        <div>
-          <Text
-            fontWeight={800}
-            letterSpacing={8}
-            align={"center"}
-            fontSize="5xl"
-          >
-            PLAY IT AGAIN TUNES
-          </Text>
-        </div>
-        <div>
-          <Text letterSpacing={2} align={"center"} fontSize="2xl">
-            Musical Instrumental Rentals
-          </Text>
-        </div>
-        {/* <div style={{ marginTop: 16 }}>
+      </div> */}
+
+        <div className="centerComponent">
+          <div>
+            <Text
+              fontWeight={800}
+              letterSpacing={8}
+              align={"center"}
+              fontSize="5xl"
+            >
+              PLAY IT AGAIN TUNES
+            </Text>
+          </div>
+          <div>
+            <Text letterSpacing={2} align={"center"} fontSize="2xl">
+              Musical Instrumental Rentals
+            </Text>
+          </div>
+          {/* <div style={{ marginTop: 16 }}>
           <Text
             letterSpacing={1}
             fontWeight={600}
@@ -85,28 +86,32 @@ export default function Categories() {
             {searchResults}
           </Text>
         </div> */}
-        <div className="d-flex flex-wrap" style={{ marginTop: 32 }}>
-          {filterProducts().map(
-            (product) => (
-              //   searchResults &&
-              //   category.label === searchResults &&
-              //   category.items.map((item) => (
-              <div className="singleCard" key={product._id}>
-                {/* {console.log("categories ", category)}
+          <SimpleGrid
+            columns={{ sm: 1, md: 2, lg: 3, xl: 4, "2xl": 5 }}
+            spacing="15px"
+          >
+            {filterProducts().map(
+              (product) => (
+                //   searchResults &&
+                //   category.label === searchResults &&
+                //   category.items.map((item) => (
+                <div className="singleCard" key={product._id}>
+                  {/* {console.log("categories ", category)}
                   {console.log("search ", searchResults)} */}
-                <Card
-                  _id={product._id}
-                  name={product.name}
-                  price={product.price}
-                  image={product.image}
-                  des={product.description}
-                />
-              </div>
-            )
-            //   ))
-          )}
+                  <Card
+                    _id={product._id}
+                    name={product.name}
+                    price={product.price}
+                    image={product.image}
+                    des={product.description}
+                  />
+                </div>
+              )
+              //   ))
+            )}
+          </SimpleGrid>
         </div>
       </div>
-    </div>
+    </Center>
   );
 }
