@@ -7,6 +7,7 @@ import {
   useColorModeValue as mode,
   FormLabel,
   Text,
+  useToast,
 } from "@chakra-ui/react";
 import * as React from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -59,6 +60,7 @@ const QuantitySelect = (props) => {
 };
 
 export const CartItem = (props) => {
+  const toast = useToast();
   const { _id, name, description, quantity, image, price } = props;
 
   useSelector((state) => {
@@ -68,6 +70,13 @@ export const CartItem = (props) => {
   const dispatch = useDispatch();
 
   const removeFromCart = (item) => {
+    toast({
+      title: "Item removed",
+      description: `${name} removed from the cart.`,
+      status: "error",
+      duration: 9000,
+      isClosable: true,
+    });
     dispatch({
       type: REMOVE_FROM_CART,
       _id: item._id,
