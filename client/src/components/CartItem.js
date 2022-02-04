@@ -5,11 +5,8 @@ import {
   Select,
   useColorModeValue,
   useColorModeValue as mode,
-<<<<<<< HEAD
-=======
-  Text,
->>>>>>> main
   FormLabel,
+  Text,
 } from "@chakra-ui/react";
 import * as React from "react";
 import { useDispatch, useSelector } from "react-redux";
