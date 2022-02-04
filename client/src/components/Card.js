@@ -1,5 +1,6 @@
 import {
   Flex,
+  useToast,
   Box,
   Image,
   Badge,
@@ -33,6 +34,7 @@ const data = {
 
 function Card(item) {
   const dispatch = useDispatch();
+  const toast = useToast();
   const state = useSelector((state) => state);
 
   const { _id, name, price, image, des, quantity } = item;
@@ -40,7 +42,6 @@ function Card(item) {
   const { cart } = state;
 
   const addToCart = () => {
-    window.alert(`${name} added to cart!`);
     const itemInCart = cart.find((cartItem) => cartItem._id === _id);
     if (itemInCart) {
       dispatch({
@@ -53,6 +54,13 @@ function Card(item) {
         purchaseQuantity: parseInt(itemInCart.purchaseQuantity) + 1,
       });
     } else {
+      toast({
+        title: "Item added!",
+        description: `${name} added to the cart. Get practicing!`,
+        status: "success",
+        duration: 9000,
+        isClosable: true,
+      });
       dispatch({
         type: ADD_TO_CART,
         product: { ...item, purchaseQuantity: 1 },
